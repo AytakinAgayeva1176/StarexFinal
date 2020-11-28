@@ -1,0 +1,113 @@
+﻿@model Starex.ViewModels.OrderViewModel
+@{
+    Layout = null;
+}
+
+<div class="form-wrap">
+    <form asp-controller="Order" asp-action="NewOrder" method="post">
+        <div class="border border-info  p-4  mb-4 col-12">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div hidden>
+                    <label asp-for="CountryId" class="control-label"></label>
+                    <input name="CountryId" asp-for="CountryId" class="form-control" />
+                    <span asp-validation-for="CountryId" class="text-danger"></span>
+                </div>
+                <div class="col-lg-6">
+                    <div class="my-2 position-relative form-group">
+                        <label class="control-label">Link</label>
+                        <input asp-for="Url" type="url" name="url" id="url-0" class="form-control" value="" />
+                        <span asp-validation-for="Url" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-lg-2">
+                    <div class="my-2 position-relative form-group">
+                        <label class="control-label">Miqdar</label>
+                        <input asp-for="Quantity" type="number" step="1" min="1" max="100" class="form-control" value="1" />
+                        <span asp-validation-for="Quantity" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="my-2 position-relative form-group">
+                        <label class="control-label">Məhsulun rəngi</label>
+                        <input asp-for="ProductColor" class="form-control" type="text" value="" />
+                        <span asp-validation-for="ProductColor" class="text-danger"></span>
+
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="my-2 position-relative form-group">
+                        <label class="control-label">Məhsulun ölçüsü</label>
+                        <input asp-for="ProductSize" type="text" class="form-control" value="" />
+                        <span asp-validation-for="ProductSize" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row flex-lg-row">
+                <div class="col-lg-4 order-last order-lg-first">
+                    <div class="my-2 position-relative form-group">
+                        <label class="control-label">Şərh</label>
+                        <textarea asp-for="Comment" class="form-control" rows="1"></textarea>
+                        <span asp-validation-for="Comment" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="my-2 position-relative form-group">
+                        <label class="control-label">Məbləğ (TL)</label>
+                        <input name="Product_Price" asp-for="Product_Price" class="form-control" step=".01" min="1" type="number" value="" />
+                        <span asp-validation-for="Product_Price" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="my-2 position-relative form-group">
+                        <label class="control-label">Türkiyə daxili karqo (TL)</label>
+                        <input name="Cargo_Price" asp-for="Cargo_Price" class="form-control" step=".01" min="0" type="number" value="" />
+                        <span asp-validation-for="Cargo_Price" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-2  order-sm-11">
+                    <div class="my-2 position-relative form-group">
+                        <label class="control-label">Toplam<small class="text-secondary"> (+2.5%)</small></label>
+                        <input name="priceResult" class="form-control" disabled="" type="text" value="0 TL" />
+                        <input name="PriceResult" asp-for="PriceResult" class="form-control" type="hidden" value="0 TL" />
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col">
+                <p>
+                    İndi istədiyiniz bütün linkləri 1 sifariş şəklində göndərə bilərsiniz.
+                    Bunun üçün ekranın sağ aşağı kənarında "Sifariş əlavə et" düyməsini
+                    sıxaraq növbəti linki əlavə etməlisiniz.
+                </p>
+                <hr>
+            </div>
+        </div>
+
+
+        <div class="row form-bottom">
+            <div class="col-12 d-flex justify-content-between">
+                <div class="position-relative form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input"> Məsafəli satış <a href="/pages/conditions/" target="_blank" class="text-primary rules-link">şərtlərini</a> qəbul edirəm
+                    </label>
+
+                    <div class="form-group">
+                        <input  type="submit" value="Göndər" class="btn send-btn mx-2 btn btn-secondary" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </form>
+
+</div>
+
+

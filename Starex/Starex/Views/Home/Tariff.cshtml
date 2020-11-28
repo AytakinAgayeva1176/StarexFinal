@@ -1,0 +1,203 @@
+﻿
+@{
+    ViewData["Title"] = "Tariff";
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}
+
+<section class="tariffs">
+    <div class="tariffs-bcg">
+        <div class="container py-5 d-flex align-items-center justify-content-center">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Tariflər</h1>
+                    <div class="py-3 d-flex align-items-center justify-content-center">
+                        <a href="index.html">Əsas</a> / Tariflər
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="transportion-tariffs tabs  tabs-country py-3">
+        <div class="container d-flex flex-column">
+            <h1 class="text-center">Daşınma tarifləri</h1>
+
+            <ul class="d-flex mx-3 py-3">
+                <li class="p-2">
+                    <img src="~/images/USa.png" alt="">
+                    <p>United States</p>
+                </li>
+                <li class="px-4 active-li">
+                    <img src="~/images/Turk.png" alt="">
+                    <p>Turkey</p>
+                </li>
+                <li class="px-4">
+                    <img src="~/images/chin.png" alt="">
+                    <p>China</p>
+                </li>
+            </ul>
+            <div class="tariff-content tabs-content">
+                <div class="US-tariffs d-none">
+                    <div class="col-12">
+                        <div class="tariffs-content p-4 my-3">
+                            <div class="row ">
+                                <div style=" border-right: 1px solid #dee2e6;" class="col-md-6 col-9 text-center">0.0 kq-dan 0.25 kq-a qədər</div>
+                                <div class="col-md-6 col-3 text-center">$ 2.50</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="tariffs-content p-4 my-3">
+                            <div class="row ">
+                                <div style=" border-right: 1px solid #dee2e6;" class="col-md-6 col-9 text-center">0.25 kq-dan 0.5 kq-a qədər</div>
+                                <div class="col-md-6 col-3 text-center">$ 4.00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="tariffs-content p-4 my-3">
+                            <div class="row ">
+                                <div style=" border-right: 1px solid #dee2e6;" class="col-md-6 col-9 text-center">0.5 kq-dan 0.75 kq-a qədər</div>
+                                <div class="col-md-6 col-3 text-center">$ 5.50</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="tariffs-content p-4 my-3">
+                            <div class="row ">
+                                <div style=" border-right: 1px solid #dee2e6;" class="col-md-6 col-9 text-center">0.75 kq-dan 1.0 kq-a qədər</div>
+                                <div class="col-md-6 col-3 text-center">$ 6.90</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="tariffs-content p-4 my-3">
+                            <div class="row ">
+                                <div style=" border-right: 1px solid #dee2e6;" class="col-md-6 col-9 text-center">1-5 kq (hər kq görə)</div>
+                                <div class="col-md-6 col-3 text-center">$ 6.50</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="tariffs-content p-4 my-3">
+                            <div class="row ">
+                                <div style=" border-right: 1px solid #dee2e6;" class="col-md-6 col-9 text-center">5-10 kq (hər kq görə)</div>
+                                <div class="col-md-6 col-3 text-center">$ 6.00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <p>Qeyd: Uzunluğu 1 metrdən yuxarı olan məhsulların çatdırılma ödənişi həcm çəkisinə uyğun hesablanır.</p>
+                        <p>Hesablanma qaydası: en x uzunluq x hündürlük / 6000 </p>
+                        <p>1 tərəfinin uzunluğu 120 sm-dən uzun olan bağlamalara əlavə 50$ daşınma haqqı hesablanacaq</p>
+                    </div>
+                </div>
+
+                <div class="TR-tariffs">
+                    <div class="col-12">
+                        <div class="tariffs-content p-4 my-3">
+                            <div class="row ">
+                                <div style=" border-right: 1px solid #dee2e6;" class="col-md-6 col-9 text-center">0.0 kq-dan 0.25 kq-a qədər</div>
+                                <div class="col-md-6 col-3 text-center">$ 2.50</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="tariffs-content p-4 my-3">
+                            <div class="row ">
+                                <div style=" border-right: 1px solid #dee2e6;" class="col-md-6 col-9 text-center">0.25 kq-dan 0.5 kq-a qədər</div>
+                                <div class="col-md-6 col-3 text-center">$ 3.50</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="tariffs-content p-4 my-3">
+                            <div class="row ">
+                                <div style=" border-right: 1px solid #dee2e6;" class="col-md-6 col-9 text-center">0.5 kq-dan 0.75 kq-a qədər</div>
+                                <div class="col-md-6 col-3 text-center">$ 4.50</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="tariffs-content p-4 my-3">
+                            <div class="row ">
+                                <div style=" border-right: 1px solid #dee2e6;" class="col-md-6 col-9 text-center">0.75 kq-dan 1.0 kq-a qədər</div>
+                                <div class="col-md-6 col-3 text-center">$ 5.50</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="tariffs-content p-4 my-3">
+                            <div class="row ">
+                                <div style=" border-right: 1px solid #dee2e6;" class="col-md-6 col-9 text-center">2-5 kq (hər kq görə)</div>
+                                <div class="col-md-6 col-3 text-center">$ 5.00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="tariffs-content p-4 my-3">
+                            <div class="row ">
+                                <div style=" border-right: 1px solid #dee2e6;" class="col-md-6 col-9 text-center">5-10 kq (hər kq görə)</div>
+                                <div class="col-md-6 col-3 text-center">$ 4.50</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="CN-tariffs d-none">
+                    <div class="col-12">
+                        <div class="tariffs-content p-4 my-3">
+                            <div class="row ">
+                                <div style=" border-right: 1px solid #dee2e6;" class="col-md-6 col-9 text-center">0.0 kq-dan 0.25 kq-a qədər</div>
+                                <div class="col-md-6 col-3 text-center">$ 4.90</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="tariffs-content p-4 my-3">
+                            <div class="row ">
+                                <div style=" border-right: 1px solid #dee2e6;" class="col-md-6 col-9 text-center">0.25 kq-dan 0.5 kq-a qədər</div>
+                                <div class="col-md-6 col-3 text-center">$ 6.90</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="tariffs-content p-4 my-3">
+                            <div class="row ">
+                                <div style=" border-right: 1px solid #dee2e6;" class="col-md-6 col-9 text-center">0.5 kq-dan 0.75 kq-a qədər</div>
+                                <div class="col-md-6 col-3 text-center">$ 8.50</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="tariffs-content p-4 my-3">
+                            <div class="row ">
+                                <div style=" border-right: 1px solid #dee2e6;" class="col-md-6 col-9 text-center">0.75 kq-dan 1.0 kq-a qədər</div>
+                                <div class="col-md-6 col-3 text-center">$ 9.50</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="tariffs-content p-4 my-3">
+                            <div class="row ">
+                                <div style=" border-right: 1px solid #dee2e6;" class="col-md-6 col-9 text-center">1 kg-dan yuxarı (hər kq görə)</div>
+                                <div class="col-md-6 col-3 text-center">$ 9.50</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <p>Qeyd: Uzunluğu 1 metrdən yuxarı olan məhsulların çatdırılma ödənişi həcm çəkisinə uyğun hesablanır.</p>
+                        <p>Hesablanma qaydası: en x uzunluq x hündürlük / 6000 </p>
+                        <p>1 tərəfinin uzunluğu 120 sm-dən uzun olan bağlamalara əlavə 50$ daşınma haqqı hesablanacaq</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+

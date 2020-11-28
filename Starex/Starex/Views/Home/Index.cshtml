@@ -1,0 +1,252 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}
+
+    <section class="home">
+        <section class="home-intro">
+            <div class="intro-wrap py-5">
+                <div class="container">
+                    <div class="intro-text d-flex w-100 justify-content-center align-items-center flex-column py-3 mt-3 py-md-5 mt-md-5">
+                        <h1><span>TÜRKİYƏDƏN</span> və <span>AMERİKADAN</span> ALIŞ-VERİŞ ETMƏK </h1><h2>İNDİ DAHA <span>ASAN OLDU</span></h2>
+                    </div>
+
+                    <div class="row my-5">
+                        <div class="col-md-4 my-2">
+
+                            <div class="country-wrap">
+                                <select class="country-type" name="country" title="">
+                                    <option value="TR">Türkiyə</option>
+                                    <option value="US">Amerika</option>
+                                    <option value="CN">Çin</option>
+                                </select>
+                            </div>
+
+                            <div class="maye">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="mr-2 maye-type">
+                                    <span class="liquid-check">Məhsulun tərkibində maye var</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 my-2">
+                            <div class="weight-wrap">
+                                <div class="input-wrap">
+                                    <input id="inputElem" class="number" value="0" type="number" step="any" placeholder="Çəkini qeyd edin" min=0>
+                                    <div class="number-btns arrow">
+                                        <div class="up-btn">
+                                            <i class="fa fa-angle-up"></i>
+                                        </div>
+                                        <div class="down-btn arrow">
+                                            <i class="fa fa-angle-down"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weight_select">
+                                    <select class="weight-type" name="user_weight" title="">
+                                        <option selected value="kg">KQ</option>
+                                        <option value="gr">QR</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4 my-2">
+                            <div class="weight_total d-flex align-items-center">
+                                <div>ÇATDIRILMA QİYMƏTİ</div>
+                                <span class="total-value">$0.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-second-part py-5">
+            <div class="container">
+                <div class="d-flex flex-column align-items-center ">
+                    <h1>STAREX NECƏ İŞLƏYİR</h1>
+                    <span class="mb-3 line"></span>
+                    <p class="my-3" style="font-size:20px;color:#666;letter-spacing:2px;">Türkiyə və Amerikadan sifariş edin, alış-veriş xərcləriniz 2 dəfə az olsun.</p>
+                    <div class="row my-5">
+                        <div class="col-md-4 d-flex flex-column align-items-center justify-content-center pb-5">
+                            <img src="~/images/Screenshot (107).png" alt="">
+                            <h3 class="text-center mb-3">Qeydiyyatdan keçin</h3>
+                            <p class="text-center">Türkiyə və Amerikadan məhsul sifariş vermək üçün ilk öncə saytımızda qeydiyyatdan keçin.</p>
+                        </div>
+                        <div class="col-md-4 border-right  border-left d-flex flex-column align-items-center justify-content-center pb-5">
+                            <img src="~/images/Screenshot (108).png" alt="">
+                            <h3 class="text-center mb-3">"Sifariş et" xidmətindən istifadə edin</h3>
+                            <p class="text-center">Türkiyə və Amerikanın alış-veriş saytlarından bəyəndiyiniz məhsulun linkini "Sifariş et" xidməti ilə bizə göndərin</p>
+                        </div>
+                        <div class="col-md-4  d-flex flex-column align-items-center justify-content-center pb-5">
+                            <img src="~/images/Screenshot (109).png" alt="">
+                            <h3 class="text-center mb-3">Evinizə qədər çatdıraq</h3>
+                            <p class="text-center">Sifariş etdiyiniz məhsulu ofisimizdən təhvil alın və ya evinizə qədər çatdıraq.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="advantages d-flex w-100 position-relative flex-column">
+            <div class="advantages-image"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 "></div>
+                    <div class="col-lg-6 advantages-wrap pt-5 pb-3 pl-md-5">
+                        <div class="d-flex flex-column mb-5">
+                            <h1>Əsas üstünlüklərimiz</h1>
+                            <span></span>
+                        </div>
+                        <div class="row flex-row-reverse">
+
+                            <div class="row d-flex align-items-start">
+                                <div class="col-md-2 d-flex flex-column align-items-md-start align-items-center p-0">
+                                    <img src="~/images/Screenshot (108.1).png" alt="">
+                                </div>
+                                <div class="col-md-10 d-flex flex-column align-items-md-start align-items-center m-md-0 m-3">
+                                    <h4>Sürətli və təhlükəsiz çatdırılma</h4>
+                                    <p class="mb-5">Bağlamanız bizim xaricdəki əməkdaşlarımız tərəfindən təhvil alındıqdan sonra göndəriş gününə qədər çeşidlənir, anbarlaşdırılır və qısa müddət ərzində Bakı ofisimizə çatdırılır. Bu müddət ərzində bütün proseslər barədə email, tətbiq və sms vasitəsilə sizə məlumat göndərilir.</p>
+                                </div>
+                            </div>
+
+                            <div class="row d-flex align-items-start">
+                                <div class="col-md-2 d-flex flex-column align-items-md-start align-items-center p-0">
+                                    <img src="~/images/Screenshot (109.1).png" alt="">
+                                </div>
+                                <div class="col-md-10 d-flex flex-column align-items-md-start align-items-center m-md-0 m-3">
+                                    <h4>Pula Qənaət</h4>
+                                    <p class="mb-5">
+                                        Sifarişiniz əsasında Türkiyə və Amerikadan gətirdiyimiz məhsulların qiyməti ölkəmizdəki qiymətlərdən əksər zaman 2 dəfə azdır.
+                                        Türkiyə və Amerikadan ən ucuz çatdırılma təklifləri hazırda şirkətimiz tərəfindən təklif olunur.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row d-flex align-items-start">
+                                <div class="col-md-2 d-flex flex-column align-items-md-start align-items-center p-0">
+                                    <img src="~/images/Screenshot (110).png" alt="">
+                                </div>
+                                <div class="col-md-10 d-flex flex-column align-items-md-start align-items-center m-md-0 m-3">
+                                    <h4>Sübüt olunmuş təcrübə</h4>
+                                    <p class="mb-5">Beynəlxalq daşımalar sahəsində 2010-cu ildən etibarən fəaliyyət göstəririk. Bu istiqamətdə əldə etdiyimiz təcrübəni 2018-ci ildən etibarən kuryer xidmətinin də təşkilində həyata keçirməyə başlamışıq. İndiyədək Türkiyədən və Amerikadan yüz minlərlə bağlamanı müştərilərimizə çatdırmışıq.</p>
+                                </div>
+                            </div>
+
+                            <div class="row d-flex align-items-start">
+                                <div class="col-md-2 d-flex flex-column align-items-md-start align-items-center p-0">
+                                    <img src="~/images/Screenshot (111).png" alt="">
+                                </div>
+                                <div class="col-md-10 d-flex flex-column align-items-md-start align-items-center m-md-0 m-3">
+                                    <h4>İnnovativlik</h4>
+                                    <p class="mb-5">İstər yeni texnologiyaların tətbiqi, istərsə də işçi heyətinə mütəmadi treninqlərin verilməsi istiqamətində şirkətimiz davamlı yatırım edir.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="latest-news py-5">
+            <div class="container">
+                <div class="d-flex flex-column align-items-center">
+                    <h1>Ən Son Yeniliklərimiz</h1>
+                    <span class="line"></span>
+                    <div class="row mt-5 ">
+                        <div class="col-md-4 ">
+                            <a href="/news/-smart-customs--tetbiqi-ile-bagli-yenilik1601463782-93136/" class="news_item my-3">
+                                <div class="news-img">
+                                    <img src="~/images/Smartyenilik600x600.png" alt="news image" class="img-fluid">
+                                </div>
+                                <div class="news-desc p-4">
+                                    <h3>"Smart Customs" tətbiqi ilə bağlı yenilik</h3>
+                                    <time>30.09.2020</time>
+                                    <p></p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="/news/baglamalarin-gonderisi-ile-bagli-melumat1601368811-000757/" class="news_item my-3">
+                                <div class="news-img">
+                                    <img src="~/images/baglamagonderisi600x600.png" alt="news image" class="img-fluid">
+                                </div>
+                                <div class="news-desc p-4">
+                                    <h3>Bağlamaların göndərişi ilə bağlı məlumat</h3>
+                                    <time>29.09.2020</time>
+                                    <p></p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="/news/xidmet-merkezlerimiz-19:00-dek-fealiyyet-gosterecekdir-1601285575-732405/" class="news_item my-3">
+                                <div class="news-img">
+                                    <img src="~/images/herbi600x600.jpg" alt="news image" class="img-fluid">
+                                </div>
+                                <div class="news-desc p-4">
+                                    <h3>Xidmət mərkəzlərimiz 19:00-dək fəaliyyət göstərəcəkdir.</h3>
+                                    <time>28.09.2020</time>
+                                    <p></p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="call-center position-relative">
+            <div class="callcenter-bck"></div>
+            <div class="container d-flex flex-column">
+                <div class="d-flex flex-column align-items-center py-5">
+                    <h1>MÜŞTƏRİ XİDMƏTLƏRİ</h1>
+                    <span></span>
+                </div>
+                <div class="row my-4 justify-content-between align-items-center ">
+                    <div class="col-md-12 d-flex align-items-center justify-content-center justify-content-md-start">
+
+                        <a href="tel:+994 12 3100825" class="call_center_phone d-flex align-items-center">
+                            <img src="~/images/phone.png" alt="">  +994 12 3100825
+                        </a>
+                    </div>
+                    <div class="col-md-8 d-flex align-items-center justify-content-center justify-content-md-start"></div>
+                    <div class="col-md-4 mt-md-0 mt-4 d-flex justify-content-md-end justify-content-center">
+                        <div class="call_center_fb">
+                            <a href="https://www.facebook.com/starex.az">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </div>
+
+                        <div class="call_center_insta">
+                            <a href="https://www.instagram.com/starex.az/">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row call-center-footer py-5">
+                    <div class="col-md-6 col-12 d-flex justify-content-start align-items-center pl-0">
+                        <div class="col-2 "> <img src="~/images/location-pin-4.png" alt=""></div>
+                        <div class="col-10 pl-5">
+                            <h3>Bizim Ünvan</h3>
+                            <p>Atatürk prospekti 4A<br></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12 d-flex justify-content-start align-items-center pl-0">
+                        <div class="col-2"> <img src="~/images/time.png" alt=""></div>
+                        <div class="col-10 px-5">
+                            <h3>İş Saatları</h3>
+                            <p>B.e.-Şənbə 10:00-21:00<br></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+

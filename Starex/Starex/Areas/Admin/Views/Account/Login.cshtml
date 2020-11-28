@@ -1,0 +1,71 @@
+﻿@model Starex.Areas.ViewModels.AdminLoginViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/StyleAdmin.css">
+    <title>Login</title>
+</head>
+<body>
+
+
+        <div class="container py-5">
+            <div class="row ">
+                <div class="col-12 text-center">
+                    <h2 style="color: #005FB5">ŞƏXSİ KABİNETƏ GİRİŞ</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center my-5">
+
+                <div class="col-lg-6 justify-content-center ">
+                    <form asp-area="Admin" asp-controller="Account" asp-action="Login" method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="row d-flex flex-column">
+
+                            <div class="">
+                                <div class="form-line">
+                                    <label asp-for="UserName" class="control-label"></label>
+                                    <input asp-for="UserName" class="form-control" />
+                                    <span asp-validation-for="UserName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="form-line">
+                                    <label asp-for="Password" class="control-label"></label>
+                                    <input asp-for="Password" class="form-control" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="row justify-content-center mt-5">
+                            <div class="col-md-6">
+                                <div class="form-submit">
+                                    <input type="submit" value="DAXİL OL" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+    <script src="https://kit.fontawesome.com/4d10e62fd0.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</body>
+</html>

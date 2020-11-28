@@ -1,0 +1,101 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> signInManager
+@inject UserManager<ApplicationUser> userManager
+@{
+
+    var user = await userManager.GetUserAsync(User);
+    var displayName = "";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/StyleAdmin.css" />
+    <link href="~/select2/css/select2.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="head">
+        <div class="little-menu  col-12 d-flex flex-column align-items-end p-0 justify-content-center header-top-right flex-wrap">
+
+
+            @if (signInManager.IsSignedIn(User))
+            {
+                displayName = user.UserName;
+
+                    <div class="d-flex header-top-right flex-column align-items-end pr-3 pt-3">
+                        <ul class="managername">
+                            <li class="pt d-flex align-items-end ">
+                                <div class="d-flex align-items-center">
+                                    <p>@displayName </p>
+                                    <i class="fas fa-chevron-down ml-2"></i>
+                                </div>
+                               
+                            </li>
+
+                            <li class="pt-3 dropdown_menu">
+                                <ul class="dropdown navigate-menu">
+
+                                    <li><a class="scroll-item" href="/Admin/Account/CreateRole">Yeni Role</a></li>
+                                    <li><a class="scroll-item" href="/Admin/Account/CreateManager">Yeni Manager</a></li>
+                                    <li><a class="scroll-item" href="/Admin/Account/Logout">Tənzimləmələr</a></li>
+                                    <li><a class="scroll-item" href="/Admin/Account/Logout">Çıxış</a></li>
+                                    <li><a class="scroll-item" href="/Home/Dashboard/#/balance">Balans</a></li>
+                                    <li><a class="scroll-item" href="/Home/Dashboard/#/tickets">Müraciətlər</a></li>
+                                    <li><a href="/account/settings/">Tənzimləmələr</a></li>
+                                    <li><a href="/Account/LogOut/" id="logout-link">Çıxış</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+
+            }
+        </div>
+    </div>
+    <div class="burger open-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+    <div class="menu-nav">
+        <div class="arrow-close"> <i class="arrow fas fa-angle-left"></i></div>
+        <a href=""><img src="~/images/starex-logo.jpg" alt=""></a>
+
+        <ul class="nav">
+            <li index="1" class="activeNav">
+                <i class="fas fa-home"></i>
+                <p>Əsas</p>
+            </li>
+            <li index="2">
+                <i class="fas fa-plus"></i>
+                <p>Sifarişlər</p>
+            </li>
+            <li index="3">
+                <i class="fas fa-newspaper"></i>
+                <p>Bəyannamələr</p>
+            </li>
+            <li index="4">
+                <i class="fas fa-clipboard-list"></i>
+                <p>Müraciətlər</p>
+            </li>
+            <li index="5">
+                <i class="fas fa-user"></i>
+                <p>İstifadəçilər</p>
+            </li>
+        </ul>
+
+    </div>
+
+    <section class="homesection " >
+        @RenderBody()
+    </section>
+    
+
+    <script src="https://kit.fontawesome.com/4d10e62fd0.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</body>
+</html>

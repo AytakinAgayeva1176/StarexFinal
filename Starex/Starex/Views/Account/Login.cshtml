@@ -1,0 +1,54 @@
+﻿@model Starex.ViewModels.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}
+
+
+<section class="register py-5">
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 text-center">
+                <h2>ŞƏXSİ KABİNETƏ GİRİŞ</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center my-5">
+
+            <div class="col-lg-6 justify-content-center ">
+                <form asp-controller="Account" asp-action="Login">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="row d-flex flex-column">
+     
+                        <div class="">
+                            <div class="form-line">
+                                <label asp-for="Email" class="control-label"></label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form-line">
+                                <label asp-for="Password" class="control-label"></label>
+                                <input asp-for="Password" class="form-control" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                        </div>
+                       
+
+                    </div>
+
+
+                    <div class="row justify-content-center mt-5">
+                        <div class="col-md-6">
+                            <div class="form-submit">
+                                <input type="submit" value="DAXİL OL" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>

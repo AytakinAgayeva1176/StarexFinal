@@ -1,0 +1,61 @@
+﻿@model Starex.ViewModels.ManagerRegisterViewModel
+
+@{
+    ViewData["Title"] = "CreateManager";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container py-5">
+    <div class="row ">
+        <div class="col-12 text-center">
+            <h2 style="color: #005FB5">YENİ MANAGER ƏLAVƏ ET</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center my-3">
+
+        <div class="col-lg-6 justify-content-center ">
+            <form asp-area="Admin" asp-controller="Account" asp-action="CreateManager" method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="row d-flex flex-column">
+
+                    <div class="">
+                        <div class="form-line">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="form-line">
+                            <label asp-for="Password" class="control-label"></label>
+                            <input asp-for="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                <div class="">
+                    <div class="form-line">
+                        <label  class="control-label">Role Name</label>
+                        <select name="RoleId" asp-items="@ViewBag.Roles" class="form-control">
+                            <option selected disabled>--------</option>
+                        </select>
+                    </div>
+                </div>
+              
+</div>
+
+                <div class="row justify-content-center mt-5">
+                    <div class="col-md-6">
+                        <div class="form-submit">
+                            <input type="submit" value="ƏLAVƏ ET" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+

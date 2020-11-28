@@ -1,0 +1,147 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> signInManager
+@model Starex.ViewModels.UserViewModel
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}
+
+
+
+<section class="register py-5">
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 text-center">
+                <h2>QEYDİYYAT</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center my-5">
+
+            <div class="col-lg-8 ">
+                <form asp-controller="Account" asp-action="Register">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-line">
+                                <label asp-for="Name" class="control-label"></label>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-line">
+                                <label asp-for="Surname" class="control-label"></label>
+                                <input asp-for="Surname" class="form-control" />
+                                <span asp-validation-for="Surname" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-line">
+                                <label asp-for="Gender" class="control-label"></label>
+                                <select asp-for="Gender" class="form-control">
+                                    <option selected disabled>--------</option>
+                                    <option value="Qadin">Qadin</option>
+                                    <option value="Kishi">Kishi</option>
+                                </select>
+                                <span asp-validation-for="Gender" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-line">
+                                <label asp-for="BirthDate" class="control-label"></label>
+                                <input asp-for="BirthDate" class="form-control" autocomplete="off" data-date-format="dd/mm/yyyy" />
+                                <span asp-validation-for="BirthDate" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-line">
+                                <label asp-for="Address" class="control-label"></label>
+                                <input asp-for="Address" class="form-control" />
+                                <span asp-validation-for="Address" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-line">
+                                <label asp-for="WarehouseId" class="control-label"></label>
+                                <select asp-for="WarehouseId" asp-items="@ViewBag.Warehouse" class="form-control">
+                                    <option selected disabled>--------</option>
+                                </select>
+                                <span asp-validation-for="WarehouseId" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="form-line">
+                                <label asp-for="GovId" class="control-label"></label>
+                                <div class="d-flex">
+                                    <div class="prefix">
+                                        <select asp-for="GovIdPrefix" class="form-control">
+                                            <option selected disabled>---</option>
+                                            <option value="AA">AA</option>
+                                            <option value="AZE">AZE</option>
+                                        </select>
+                                        <span asp-validation-for="GovIdPrefix" class="text-danger"></span>
+                                    </div>
+
+                                    <input asp-for="GovId" class="form-control" />
+                                    <span asp-validation-for="GovId" class="text-danger"></span>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-line">
+                                <label asp-for="FinCode" class="control-label"></label>
+                                <input asp-for="FinCode" class="form-control" />
+                                <span asp-validation-for="FinCode" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-line">
+                                <label asp-for="PhoneNumber" class="control-label"></label>
+                                <input asp-for="PhoneNumber" class="form-control" />
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-line">
+                                <label asp-for="Email" class="control-label"></label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-line">
+                                <label asp-for="Password" class="control-label"></label>
+                                <input asp-for="Password" class="form-control" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-line">
+                                <label asp-for="ConfirmPassword" class="control-label"></label>
+                                <input asp-for="ConfirmPassword" class="form-control" />
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row justify-content-center mt-5">
+                        <div class="col-md-6">
+                            <div class="form-submit">
+                                <input type="submit" value="QEYDİYYAT" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>

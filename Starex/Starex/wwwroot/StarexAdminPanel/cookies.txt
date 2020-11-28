@@ -1,0 +1,7 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+themeforest.net	TRUE	/	FALSE	1999999999	marketplace_banners	%7B%22global%22%3A%22elements_mkt-header_general_9Nov2020_B%22%7D
+themeforest.net	TRUE	/	FALSE	1999999999	_fd_session	NhIXHK2tAtLWyL3psWfh6m89SX6Vq4G1rNDDYJAoT1ek7z1ikIBcZhg%2FBuRF8fEnG1Xf9LcIlZmr7l8CYOkfVegm%2FKkZDbGE73VpEuupPK%2BW0u8ZzN9oGcIpOhJW68WEg4qGvHnD1Nj3PgD34P%2FRwMrGOJcNSGCdQXSOwgR%2FMCofhByXvF1se7OXmQbjXL12C0%2FQzWW4Lryeb%2Fy%2BIBRACpSTkHLIChRKX7U5sQGB%2Fa3COunZzzFzfQMwt9h0S3TiHJFrEx1SKmMl12xcRF6w4yIOWyZQMWqE1KQHIiied2cJUWqnw3%2BQms1kmX07oiX%2BTQ%2FGHAc%3D--0UQ4Sz2r6n4qFroT--Pgv3PvF%2BdD3aqEn4cpp2CQ%3D%3D
+.themeforest.net	TRUE	/	FALSE	1999999999	__cfduid	d473421047abcc5fc31106031653ba1951605601750
+themeforest.net	TRUE	/	FALSE	1999999999	SameSite	Lax
+
