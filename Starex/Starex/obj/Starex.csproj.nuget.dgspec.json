@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Code\\source\\repos\\Starex\\Starex\\Starex.csproj": {}
+    "C:\\Users\\Code\\source\\repos\\StarexFinalProject\\Starex\\Starex\\Starex.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Code\\source\\repos\\Starex\\Starex\\Starex.csproj": {
+    "C:\\Users\\Code\\source\\repos\\StarexFinalProject\\Starex\\Starex\\Starex.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Code\\source\\repos\\Starex\\Starex\\Starex.csproj",
+        "projectUniqueName": "C:\\Users\\Code\\source\\repos\\StarexFinalProject\\Starex\\Starex\\Starex.csproj",
         "projectName": "Starex",
-        "projectPath": "C:\\Users\\Code\\source\\repos\\Starex\\Starex\\Starex.csproj",
+        "projectPath": "C:\\Users\\Code\\source\\repos\\StarexFinalProject\\Starex\\Starex\\Starex.csproj",
         "packagesPath": "C:\\Users\\Code\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Code\\source\\repos\\Starex\\Starex\\obj\\",
+        "outputPath": "C:\\Users\\Code\\source\\repos\\StarexFinalProject\\Starex\\Starex\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

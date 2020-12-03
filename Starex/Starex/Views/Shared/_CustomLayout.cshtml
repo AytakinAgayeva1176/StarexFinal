@@ -55,10 +55,10 @@
                         @if (signInManager.IsSignedIn(User))
                         {
                             displayName = user.Name + " " + user.Surname;
-                            <div class="col-6 p-0 d-flex flex-column align-items-center">
+                            <div class="col-6 p-0 d-flex flex-column align-items-start">
                                 <ul class="username">
                                     <li class="pt-3 d-flex align-items-end">
-                                        <p>@displayName </p>
+                                        <p>@displayName</p>
                                         <i class="fas fa-chevron-down ml-2"></i>
                                     </li>
 

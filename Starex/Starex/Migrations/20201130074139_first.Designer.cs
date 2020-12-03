@@ -10,7 +10,7 @@ using Starex.Contexts;
 namespace Starex.Migrations
 {
     [DbContext(typeof(StarexDbContext))]
-    [Migration("20201126130350_first")]
+    [Migration("20201130074139_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -871,6 +871,63 @@ namespace Starex.Migrations
                             Id = 5,
                             Address = "GƏNCƏ: (Nəriman Nərimanov küçəsi 298F, Köhnə Yevlax avtovağzalı ilə üzbəüz)"
                         });
+                });
+
+            modelBuilder.Entity("Starex.ViewModels.SettingsViewModel", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FinCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(7)")
+                        .HasMaxLength(7);
+
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GovId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GovIdPrefix")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("WarehouseId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SettingsViewModel");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -43,10 +43,24 @@ namespace Starex.Models.Email
             builder.HtmlBody = mailRequest.Body;
             email.Body = builder.ToMessageBody();
             using var smtp = new SmtpClient();
-            smtp.Connect(_mailSettings.Host, _mailSettings.Port, SecureSocketOptions.StartTls);
-            smtp.Authenticate(_mailSettings.Mail, _mailSettings.Password);
-            await smtp.SendAsync(email);
-            smtp.Disconnect(true);
+
+            try
+            {
+                smtp.ServerCertificateValidationCallback =
+                  (sender, certificate, certChainType, errors) => true;
+                //Remove any OAuth functionality as we won't be using it.
+                smtp.AuthenticationMechanisms.Remove("XOAUTH2");
+                await smtp.ConnectAsync(_mailSettings.Host, 587, false).ConfigureAwait(false);
+                smtp.Authenticate(_mailSettings.Mail, _mailSettings.Password);
+                await smtp.SendAsync(email);
+                smtp.Disconnect(true);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
         }
     }
 }

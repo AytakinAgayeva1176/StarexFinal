@@ -100,6 +100,29 @@ namespace Starex.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "SettingsViewModel",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
+                    Surname = table.Column<string>(nullable: false),
+                    Gender = table.Column<string>(nullable: false),
+                    BirthDate = table.Column<DateTime>(nullable: false),
+                    Address = table.Column<string>(nullable: false),
+                    WarehouseId = table.Column<int>(nullable: false),
+                    GovIdPrefix = table.Column<string>(nullable: false),
+                    GovId = table.Column<string>(nullable: false),
+                    FinCode = table.Column<string>(maxLength: 7, nullable: false),
+                    PhoneNumber = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: false),
+                    Password = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SettingsViewModel", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Warehouses",
                 columns: table => new
                 {
@@ -686,6 +709,9 @@ namespace Starex.Migrations
 
             migrationBuilder.DropTable(
                 name: "Products");
+
+            migrationBuilder.DropTable(
+                name: "SettingsViewModel");
 
             migrationBuilder.DropTable(
                 name: "UserBalances");

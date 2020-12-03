@@ -5,9 +5,8 @@
     src: url(../customfonts/Roboto-Regular.ttf);
 }
 
-
 body {
-    font-family: 'Roboto-Regular';
+ 
     margin: 0;
     padding: 0;
 }
@@ -21,7 +20,6 @@ ul {
 
 .head {
     width: 100%;
-    height: 50px;
     padding-left: 220px;
     box-sizing: border-box;
     position: relative;
@@ -90,19 +88,24 @@ li.activeNav {
     z-index:99;
 }
 
-.arrow-close, .arrow-open {
-    position: absolute;
-    top: 20px;
-    right: 10px;
-    border: 2px solid #FFAB03;
-    border-radius: 50%;
-    height: 26px;
-    width: 26px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFAB03;
-}
+    .menu-nav>ul>li>a{
+        width:100%;
+        height:100%;
+    }
+
+    .arrow-close, .arrow-open {
+        position: absolute;
+        top: 20px;
+        right: 10px;
+        border: 2px solid #FFAB03;
+        border-radius: 50%;
+        height: 26px;
+        width: 26px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #FFAB03;
+    }
 
     .arrow-close i {
         font-size: 18px;
@@ -131,6 +134,7 @@ li.activeNav {
 
 
 .managername li {
+    transition: 0.5s;
     position: relative;
     cursor: pointer;
     color: #005fb5;
@@ -148,7 +152,7 @@ li.activeNav {
     font-weight: 700;
     width:100%;
     white-space: nowrap;
-    line-height: 2;
+    line-height: 1.7;
     transition: .2s ease;
     color: #005fb5;
 }
@@ -158,20 +162,21 @@ li.activeNav {
     }
 
 
-.managername ul.dropdown {
+.navigate-menu {
     display: none;
     background-color: white;
-    transition: .3s ease;
+    transition: 0.5s;
     position: absolute;
     top: 80%;
     right: 0;
     z-index: 99;
-    padding: 10px 20px;
+    padding: 5px 35px 5px 20px;
     box-shadow: 0 .5rem 1rem rgba(85,85,85,.15) !important;
 }
 
-.managername:hover ul.dropdown {
+.managername:hover .navigate-menu {
     display: block;
+    transition: 0.5s ease;
 }
 
 .managername li ul.dropdown li {
@@ -268,4 +273,9 @@ form h2 {
     border-radius: 0;
     outline: 0;
     border-bottom: 1px solid #24252a;
+}
+
+.listtable{
+    background-color:rgba(0, 95, 181, 0.50);
+    color:white;
 }

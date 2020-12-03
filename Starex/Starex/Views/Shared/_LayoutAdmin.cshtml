@@ -15,10 +15,13 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/StyleAdmin.css" />
     <link href="~/select2/css/select2.min.css" rel="stylesheet" />
+    <!-- Datatable -->
+  
+    <link href="~/StarexAdminPanel/motaadmin.dexignlab.com/xhtml/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
 <body>
 
-    <div class="head">
+    <div class="head py-2">
         <div class="little-menu  col-12 d-flex flex-column align-items-end p-0 justify-content-center header-top-right flex-wrap">
 
 
@@ -26,31 +29,31 @@
             {
                 displayName = user.UserName;
 
-                    <div class="d-flex header-top-right flex-column align-items-end pr-3 pt-3">
-                        <ul class="managername">
-                            <li class="pt d-flex align-items-end ">
-                                <div class="d-flex align-items-center">
-                                    <p>@displayName </p>
-                                    <i class="fas fa-chevron-down ml-2"></i>
-                                </div>
-                               
-                            </li>
+                <div class=" d-flex header-top-right flex-column align-items-end pr-3 pt-2">
+                    <ul class="managername">
+                        <li class=" align-items-end ">
+                            <div class="d-flex align-items-center">
+                                <p>@displayName </p>
+                                <i class="fas fa-chevron-down ml-2"></i>
+                            </div>
 
-                            <li class="pt-3 dropdown_menu">
-                                <ul class="dropdown navigate-menu">
+                        </li>
 
-                                    <li><a class="scroll-item" href="/Admin/Account/CreateRole">Yeni Role</a></li>
-                                    <li><a class="scroll-item" href="/Admin/Account/CreateManager">Yeni Manager</a></li>
-                                    <li><a class="scroll-item" href="/Admin/Account/Logout">Tənzimləmələr</a></li>
-                                    <li><a class="scroll-item" href="/Admin/Account/Logout">Çıxış</a></li>
-                                    <li><a class="scroll-item" href="/Home/Dashboard/#/balance">Balans</a></li>
-                                    <li><a class="scroll-item" href="/Home/Dashboard/#/tickets">Müraciətlər</a></li>
-                                    <li><a href="/account/settings/">Tənzimləmələr</a></li>
-                                    <li><a href="/Account/LogOut/" id="logout-link">Çıxış</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+                        <li class="pt-3 dropdown_menu">
+                            <ul class="dropdown navigate-menu">
+
+                                <li><a class="scroll-item" href="/Admin/Account/CreateRole">Yeni Role</a></li>
+                                <li><a class="scroll-item" href="/Admin/Account/CreateManager">Yeni Manager</a></li>
+
+                                <li><a href="#">Tənzimləmələr</a></li>
+                                <li><a href="/Admin/Account/LogOut/" id="logout-link">Çıxış</a></li>
+
+                                <li><a class="scroll-item" href="/Admin/Account/Logout">Tənzimləmələr</a></li>
+                                <li><a class="scroll-item" href="/Admin/Account/Logout">Çıxış</a>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
 
 
             }
@@ -63,16 +66,22 @@
     </div>
     <div class="menu-nav">
         <div class="arrow-close"> <i class="arrow fas fa-angle-left"></i></div>
-        <a href=""><img src="~/images/starex-logo.jpg" alt=""></a>
+        <a href="/Home/Index"><img src="~/images/starex-logo.jpg" alt=""></a>
 
         <ul class="nav">
+
             <li index="1" class="activeNav">
-                <i class="fas fa-home"></i>
-                <p>Əsas</p>
+                <a href="/Admin/Home/Index">
+                    <i class="fas fa-home"></i>
+                    <p>Əsas</p>
+                </a>
             </li>
+
             <li index="2">
-                <i class="fas fa-plus"></i>
-                <p>Sifarişlər</p>
+                <a href="/Admin/Home/Orders">
+                    <i class="fas fa-plus"></i>
+                    <p>Sifarişlər</p>
+                </a>
             </li>
             <li index="3">
                 <i class="fas fa-newspaper"></i>
@@ -83,19 +92,28 @@
                 <p>Müraciətlər</p>
             </li>
             <li index="5">
-                <i class="fas fa-user"></i>
-                <p>İstifadəçilər</p>
+                <a href="/Admin/Home/Userlist">
+                    <i class="fas fa-user"></i>
+                    <p>İstifadəçilər</p>
+                </a>
             </li>
         </ul>
 
     </div>
 
-    <section class="homesection " >
-        @RenderBody()
-    </section>
-    
+    <section class="homesection ">
+        <div class="card-body">
+            @RenderBody()
+
+        </div>
+</section>
+
 
     <script src="https://kit.fontawesome.com/4d10e62fd0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Datatable -->
+    <script src="~/StarexAdminPanel/motaadmin.dexignlab.com/xhtml/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/StarexAdminPanel/motaadmin.dexignlab.com/xhtml/js/plugins-init/datatables.init.js"></script>
+
 </body>
 </html>

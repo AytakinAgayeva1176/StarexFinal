@@ -75,6 +75,15 @@ namespace Starex.Areas.Admin.Controllers
             return View(loginViewModel);
         }
 
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+
+            return RedirectToAction("Login", "Account");
+        }
+
+
+
         [Authorize(Roles = "Admin")]
         public IActionResult CreateRole()
         {

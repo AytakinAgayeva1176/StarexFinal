@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hKA0uoLm7itCtwF3IOVbcrS7Lmtf4Oi51X/qJVSzTES6irOEnKsyqo8aDhVgMQmcgV3NiJif3cSq5mgJAYTFNw==",
+  "dgSpecHash": "55By18/EBTc4rNck02unVsqLMDAmkeCiasAQq/tgKqgVB4XnyXl/lY/zLI5TVr5FaWZp+CnaVq2HnwFF1JeRhg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Code\\source\\repos\\Starex\\Starex\\Starex.csproj",
+  "projectFilePath": "C:\\Users\\Code\\source\\repos\\StarexFinalProject\\Starex\\Starex\\Starex.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Code\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Code\\.nuget\\packages\\mailkit\\2.6.0\\mailkit.2.6.0.nupkg.sha512",

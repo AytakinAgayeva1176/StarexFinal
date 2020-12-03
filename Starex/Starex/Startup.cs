@@ -64,7 +64,7 @@ namespace Starex
                     option.Password.RequireNonAlphanumeric = false;
 
 
-                }).AddEntityFrameworkStores<StarexDbContext>();
+                }).AddEntityFrameworkStores<StarexDbContext>().AddDefaultTokenProviders(); ;
 
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IDeclarationRepository, DeclarationRepository>();

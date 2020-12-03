@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Settings";
     Layout = "~/Views/Shared/_CustomLayout.cshtml";
+    var selecList = (List<SelectListItem>)ViewBag.Warehouse;
 }
 
     <section class="register py-5">
@@ -56,25 +57,37 @@
                             <div class="col-md-12">
                                 <div class="form-line">
                                     <label asp-for="WarehouseId" class="control-label"></label>
-                                    <select asp-for="WarehouseId" asp-items="@ViewBag.Warehouse" class="form-control">
+                                    <select asp-for="WarehouseId" asp-items="selecList.Where(x=>x.Value!=Model.WarehouseId.ToString())" class="form-control">
+                                        <option selected="selected" value="@selecList.FirstOrDefault(x=>x.Value==Model.WarehouseId.ToString()).Value">
+                                            @selecList.FirstOrDefault(x => x.Value == Model.WarehouseId.ToString()).Text
+                                        </option>
                                     </select>
                                     <span asp-validation-for="WarehouseId" class="text-danger"></span>
                                 </div>
                             </div>
+
                             <div class="col-md-6">
-                                <div class="form-line">
-                                    <label asp-for="GovIdPrefix" class="control-label"></label>
-                                    <input asp-for="GovIdPrefix" class="form-control" />
-                                    <span asp-validation-for="GovIdPrefix" class="text-danger"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
+
                                 <div class="form-line">
                                     <label asp-for="GovId" class="control-label"></label>
-                                    <input asp-for="GovId" class="form-control" />
-                                    <span asp-validation-for="GovId" class="text-danger"></span>
+                                    <div class="d-flex">
+                                        <div class="prefix">
+                                            <select asp-for="GovIdPrefix" class="form-control">
+                                                <option value="AA">AA</option>
+                                                <option value="AZE">AZE</option>
+                                            </select>
+                                            <span asp-validation-for="GovIdPrefix" class="text-danger"></span>
+                                        </div>
+
+                                        <input asp-for="GovId" class="form-control" />
+                                        <span asp-validation-for="GovId" class="text-danger"></span>
+                                    </div>
+
+
+
                                 </div>
                             </div>
+
                             <div class="col-md-6">
                                 <div class="form-line">
                                     <label asp-for="FinCode" class="control-label"></label>
@@ -111,14 +124,15 @@
                                     <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                                 </div>
                             </div>
-                            <div class="row justify-content-center mt-5">
-                                <div class="col-md-6">
-                                    <div class="form-submit">
-                                        <input type="submit" value="QEYDİYYAT" class="btn btn-primary" />
-                                    </div>
+                        </div>
+                        <div class="row justify-content-center mt-5">
+                            <div class="col-md-6">
+                                <div class="form-submit">
+                                    <input type="submit" value="QEYDİYYAT" class="btn btn-primary" />
                                 </div>
                             </div>
                         </div>
+                       
         </form>
         </div>
         </div>
@@ -126,7 +140,7 @@
     </section>
 
 
-        <section class="register py-5">
+        @*<section class="register py-5">
             <div class="container">
                 <div class="row ">
                     <div class="col-12 text-center">
@@ -261,6 +275,6 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>*@
 
 

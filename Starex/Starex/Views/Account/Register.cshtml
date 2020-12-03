@@ -50,7 +50,8 @@
                         <div class="col-md-6">
                             <div class="form-line">
                                 <label asp-for="BirthDate" class="control-label"></label>
-                                <input asp-for="BirthDate" class="form-control" autocomplete="off" data-date-format="dd/mm/yyyy" />
+                                <input asp-for="BirthDate" class="form-control" autocomplete="off"  type="text" placeholder=""
+                    onfocus="(this.type='date')" />
                                 <span asp-validation-for="BirthDate" class="text-danger"></span>
                             </div>
                         </div>
@@ -77,9 +78,8 @@
                                 <div class="d-flex">
                                     <div class="prefix">
                                         <select asp-for="GovIdPrefix" class="form-control">
-                                            <option selected disabled>---</option>
+                                            <option selected value="AZE"> AZE </option>
                                             <option value="AA">AA</option>
-                                            <option value="AZE">AZE</option>
                                         </select>
                                         <span asp-validation-for="GovIdPrefix" class="text-danger"></span>
                                     </div>

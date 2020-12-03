@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Starex.Contexts;
 using Starex.Interfaces;
 using Starex.Models;
@@ -68,11 +69,9 @@ namespace Starex.Implementations
 
 
         public async Task<SignInResult> Login(LoginViewModel loginViewModel)
-        {
-        
-          
+        {     
             var signInResult = await _signInManager.PasswordSignInAsync(
-                loginViewModel.Email, loginViewModel.Password, false ,false);
+                loginViewModel.Email, loginViewModel.Password,false,false);
          
            
             return signInResult;
@@ -84,6 +83,7 @@ namespace Starex.Implementations
             var user = _starexDbContext.Users.FirstOrDefault(x => x.Id == viewModel.Id);
             user = _mapper.Map<ApplicationUser>(viewModel);
             user.UserName = viewModel.Email;
+            _starexDbContext.Entry(user).State = EntityState.Modified;
             var result = await _userManager.UpdateAsync(user);
 
             return result;

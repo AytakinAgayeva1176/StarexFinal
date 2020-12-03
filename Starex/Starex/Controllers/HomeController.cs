@@ -67,9 +67,6 @@ namespace Starex.Controllers
                 ViewBag.balanceTRY = balanceTRY;
                 ViewBag.balanceUSD = balanceUSD;
             }
-          
-          
-
             return View();
         }
         

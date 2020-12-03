@@ -33,7 +33,7 @@ namespace Starex.Controllers
         #endregion
         #region ctor
         public AccountController(StarexDbContext dbContext, IMapper mapper,
-               UserManager<ApplicationUser> userManager,SignInManager<ApplicationUser> signInManager,
+               UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
                IUserRepository userRepository, RoleManager<IdentityRole> roleManager,
               Starex.Models.Email.IEmailService mailService)
         {
@@ -64,7 +64,7 @@ namespace Starex.Controllers
                     Value = c.Id.ToString()
                 }).ToList();
 
-            return View();      
+            return View();
         }
         [HttpPost]
         public async Task<IActionResult> Register(UserViewModel userViewModel)
@@ -77,49 +77,62 @@ namespace Starex.Controllers
                 }).ToList();
 
             if (ModelState.IsValid)
-             {
-                var result =  await _userRepository.Create(userViewModel);
+            {
+                var result = await _userRepository.Create(userViewModel);
 
                 if (result.Succeeded)
                 {
-                    LoginViewModel loginViewModel = new LoginViewModel()
-                    {
-                        Email = userViewModel.Email,
-                        Password=userViewModel.Password
-                    };
-                   
-                    await _userRepository.Login(loginViewModel);
-                    var user = await _dbContext.Users.FirstOrDefaultAsync(x=>x.Email==userViewModel.Email);
+                    var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Email == userViewModel.Email);
                     var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
                     var emailConfrimationLink = Url.Action("EmailConfrimation", "Account", null, Request.Scheme);
                     MailRequest mailRequest = new MailRequest
                     {
                         ToEmail = userViewModel.Email,
                         Subject = "Email Confrimation",
-                        Body = "<form action='"+ emailConfrimationLink + "'>" +
+                        Body = "<form action='" + emailConfrimationLink + "'>" +
                         "<input name='Token' value='" + token + "' type='hidden'/>" +
                         "<input name='Email' value='" + user.Email + "' type='hidden'/>" +
-                        "<input type='submit' value='EmailConfrimation'/></form>"
+                       " <div style = 'width: 600px; display: flex; align-items: center; justify-content: center;' >"+
+                       " <div style ='font-size: 15px;text-align: center;'>" +
+                        "<h3> Qeydiyyatınızı təsdiqləyin</h3>" +
+                       " <p> Hörmətli  "+userViewModel.Name +" "+ userViewModel.Surname +", </p> " +
+                       "<p>Starex.az saytındakı qeydiyyatınızı təsdiqləmək üçün zəhmət olmasa klikləyin.</p> " +
+                        "<input style='cursor: pointer; font-weight: 800; font-size: 16px; color: white; background-color: #005eb5cc; padding: 14px 24px; border-radius: 5px; border: #005eb5cc;'  type='submit' value='EmailConfrimation'/></form>" +
+                     " </div> </div>"
                     };
+                    try
+                    {
+                        await _mailService.SendEmailAsync(mailRequest);
 
-                    await _mailService.SendEmailAsync(mailRequest);
+                    }
+                    catch (Exception ex)
+                    {
 
-                    return RedirectToAction("Dashboard", "Home");
+                        string tt = ex.Message;
+                    }
+
+
+                    return RedirectToAction("Done","Account");
                 }
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Emeliyyat ugursuzdur!");
-                 }
+                }
 
             }
-                   return View(userViewModel);
+            return View(userViewModel);
         }
 
+
+        public IActionResult Done()
+        {
+            return View();
+        }
 
 
         public IActionResult Login()
         {
-           
+
             return View();
         }
 
@@ -129,16 +142,24 @@ namespace Starex.Controllers
             if (ModelState.IsValid)
             {
                 await signInManager.SignOutAsync();
-                var result = await _userRepository.Login(loginViewModel);
-
-                if (result.Succeeded)
+                var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Email == loginViewModel.Email);
+                if (user.EmailConfirmed == true)
                 {
-                    return RedirectToAction("Dashboard", "Home");
-                }
+                    var result = await _userRepository.Login(loginViewModel);
 
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Dashboard", "Home");
+                    }
+
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Ugursuz emeliyyat");
+                    }
+                }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Ugursuz emeliyyat");
+                    TempData["Message"] = "Email yanlishdir";
                 }
 
             }
@@ -146,11 +167,11 @@ namespace Starex.Controllers
         }
 
 
-  
+
         public async Task<IActionResult> LogOut()
         {
             await signInManager.SignOutAsync();
-            
+
             return RedirectToAction("Login", "Account");
         }
 
@@ -198,6 +219,33 @@ namespace Starex.Controllers
             }
             return View(viewModel);
         }
+
+        #region email confrimation
+        public async Task<IActionResult> EmailConfrimation(string email, string token)
+        {
+            if (email == null || token == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Email == email);
+
+            if (user == null)
+            {
+                TempData["Message"] = "Email yanlishdir";
+                return RedirectToAction("Logout", "Account");
+            }
+            var result = await userManager.ConfirmEmailAsync(user, token);
+            if (result.Succeeded)
+            {
+                TempData["Message"] = "Emeliyyat ugurludur";
+                return RedirectToAction("Login", "Account", TempData["Message"]);
+            }
+
+            TempData["Message"] = "Email yanlishdir";
+            return RedirectToAction("Logout", "Account");
+        }
+        #endregion
 
     }
 }

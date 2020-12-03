@@ -127,7 +127,6 @@ namespace Starex.Contexts
         public DbSet<Order> Orders { get; set; }
         public DbSet<Declaration> Declarations { get; set; }
         public DbSet<InquiryForm> Forms { get; set; }
-        public DbSet<Starex.ViewModels.SettingsViewModel> SettingsViewModel { get; set; }
 
 
     }

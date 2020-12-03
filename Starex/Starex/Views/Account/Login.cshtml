@@ -3,7 +3,12 @@
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_CustomLayout.cshtml";
 }
-
+@{ 
+    if (TempData["Message"]!=null)
+    {
+    <p>@TempData["Message"]</p>
+    }
+}
 
 <section class="register py-5">
     <div class="container">

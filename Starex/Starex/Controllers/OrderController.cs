@@ -41,9 +41,6 @@ namespace Starex.Controllers
                 orderViewModel.CreationDate = DateTime.Now;
                 orderViewModel.StatusId = 1;
                 orderViewModel.TrackingCode = Guid.NewGuid().ToString().Substring(0,8);
-            //    orderViewModel.PriceResult = orderViewModel.Product_Price + orderViewModel.Product_Price * 0.025m+
-                    //orderViewModel.Cargo_Price + orderViewModel.Cargo_Price * 0.025m;
-                //orderViewModel.CountryId = 2;
                 var result = await orderRepository.Create(orderViewModel);
 
                 if (result==true)

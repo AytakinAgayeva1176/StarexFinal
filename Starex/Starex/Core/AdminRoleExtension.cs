@@ -30,7 +30,8 @@ namespace Starex.Core
                 {
                     Name = "Admin",
                     Email = "admin@gmail.com",
-                    UserName = "admin@gmail.com"
+                    UserName = "admin@gmail.com",
+                    EmailConfirmed=true
                 };
 
                 IdentityResult identityResult = await db.CreateAsync(admin, "Admin123");
