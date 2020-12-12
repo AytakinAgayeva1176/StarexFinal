@@ -15,7 +15,7 @@ namespace Starex.Models
         public string Gender { get; set; }
         public DateTime BirthDate { get; set; }
         public string Address { get; set; }
-      
+        public string UserCode { get; set; }
         public string GovIdPrefix { get; set; }
         public string GovId { get; set; }
 
@@ -28,6 +28,6 @@ namespace Starex.Models
         public ICollection<UserBalance> UserBalance { get; set; }
         public ICollection<Order> Orders { get; set; }
         public ICollection<Declaration> Declarations { get; set; }
-        public ICollection<InquiryForm> Forms { get; set; }
+        public ICollection<Notification> Notifications { get; set; }
     }
 }

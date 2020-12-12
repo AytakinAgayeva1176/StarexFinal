@@ -22,30 +22,6 @@ namespace Starex.Contexts
         {
             base.OnModelCreating(builder);
 
-            //const string ADMIN_ID = "a18be9c0-aa65-4af8-bd17-00bd9344e575";
-            //const string ROLE_ID = "ad376a8f-9eab-4bb9-9fca-30b01540f445";
-
-            //builder.Entity<IdentityRole>().HasData(new IdentityRole
-            //{
-            //    Id = ROLE_ID,
-            //    Name = "admin"
-            //});
-
-
-            //var hasher = new PasswordHasher<IdentityUser>();
-            //builder.Entity<IdentityUser>().HasData(new IdentityUser
-            //{
-            //    Id = ADMIN_ID,
-            //    UserName = "Admin",
-            //    PasswordHash = hasher.HashPassword(null, "Admin123")
-            //});
-
-            //builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
-            //{
-            //    RoleId = ROLE_ID,
-            //    UserId = ADMIN_ID
-            //});
-
             builder.Entity<Country>().HasData(
               new Country() { Id = 1, Name = "USA" },
                new Country() { Id = 2, Name = "Turkey" },
@@ -75,19 +51,20 @@ namespace Starex.Contexts
              new DeclarationStatus() { Id = 4, Name = "inLocalWarehouse" },
               new DeclarationStatus() { Id = 5, Name = "delivered" }
          );
-            builder.Entity<FormCategory>().HasData(
-            new FormCategory() { Id = 1, Name = "Sifariş haqqında məlumat" },
-             new FormCategory() { Id = 2, Name = "Tapılmayan bağlama" },
-              new FormCategory() { Id = 3, Name = "Hesabımda mənə məxsus olmayan bağlama" },
-               new FormCategory() { Id = 4, Name = "Sifarişin alınması" },
-                new FormCategory() { Id = 5, Name = "Bağlamanın gecikməsi" },
-                 new FormCategory() { Id = 6, Name = "Yanlış gələn sifariş" },
-                  new FormCategory() { Id = 7, Name = "Tapılmayan bağlama" },
-                   new FormCategory() { Id = 8, Name = "Geri qaytarilma" },
-                    new FormCategory() { Id = 9, Name = "Balansla bağlı" },
-                     new FormCategory() { Id = 10, Name = "Təklif və iradlar" },
-        new FormCategory() { Id = 11, Name = "Digər" }
-           );
+
+        //    builder.Entity<FormCategory>().HasData(
+        //    new FormCategory() { Id = 1, Name = "Sifariş haqqında məlumat" },
+        //     new FormCategory() { Id = 2, Name = "Tapılmayan bağlama" },
+        //      new FormCategory() { Id = 3, Name = "Hesabımda mənə məxsus olmayan bağlama" },
+        //       new FormCategory() { Id = 4, Name = "Sifarişin alınması" },
+        //        new FormCategory() { Id = 5, Name = "Bağlamanın gecikməsi" },
+        //         new FormCategory() { Id = 6, Name = "Yanlış gələn sifariş" },
+        //          new FormCategory() { Id = 7, Name = "Tapılmayan bağlama" },
+        //           new FormCategory() { Id = 8, Name = "Geri qaytarilma" },
+        //            new FormCategory() { Id = 9, Name = "Balansla bağlı" },
+        //             new FormCategory() { Id = 10, Name = "Təklif və iradlar" },
+        //new FormCategory() { Id = 11, Name = "Digər" }
+        //   );
 
             builder.Entity<Product>().HasData(
            new Product() { Id = 1, CountryId = 1, ProductType = "Accsessuar" },
@@ -123,10 +100,9 @@ namespace Starex.Contexts
         public DbSet<DeclarationStatus> DeclarationStatuses { get; set; }
         public DbSet<UserBalance> UserBalances { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<FormCategory> FormCategories { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Declaration> Declarations { get; set; }
-        public DbSet<InquiryForm> Forms { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
 
 
     }

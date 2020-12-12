@@ -15,7 +15,7 @@ namespace Starex.Implementations
         private readonly StarexDbContext _context;
         private readonly IMapper mapper;
 
-        public OrderRepository(StarexDbContext context,IMapper mapper)
+        public OrderRepository(StarexDbContext context, IMapper mapper)
         {
             _context = context;
             this.mapper = mapper;
@@ -42,10 +42,39 @@ namespace Starex.Implementations
 
         }
 
-        public async Task Update(Order order)
+        public bool Pay(int id, string userId)
         {
-            _context.Orders.Update(order);
-            await _context.SaveChangesAsync();
+            var currencyId=0;
+            var order = _context.Orders.Find(id);
+            if (order.CountryId == 2)
+            {
+                currencyId = 2;
+            }
+            else
+            {
+                currencyId = 1;
+            }
+           var result=false;
+           var userbalance= _context.UserBalances.FirstOrDefault(x => x.UserId == userId && x.CurrencyId == currencyId);
+            var balance = userbalance.Balance;
+            var amount = order.PriceResult;
+            if (order.StatusId==1)
+            {
+                if (amount <= balance)
+                {
+                    order.StatusId = 2;
+                    _context.Orders.Update(order);
+                    userbalance.Balance = balance - amount;
+                    _context.UserBalances.Update(userbalance);
+                    _context.SaveChanges();
+
+                    result = true;
+
+
+                }
+            }
+           
+            return result;
         }
     }
 }

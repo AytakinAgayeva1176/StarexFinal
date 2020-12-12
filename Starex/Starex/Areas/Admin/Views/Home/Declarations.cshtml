@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Starex.Models.Declaration>
+
+@{
+    ViewData["Title"] = "Declarations";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="table-responsive resizable-table">
+    <table class="table table-bordered w-100">
+        <thead class="w-100">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TrackingCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.User.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DeclarationDate)
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+
+                    @if (item.CountryId == 1)
+                    {
+                        <img src="~/images/usa.7b416161.png" />
+                    }
+                    else if (item.CountryId == 2)
+                    {
+                        <img src="~/images/turkey.png" />
+                    }
+
+                    else
+                    {
+                        <img src="~/images/chin.png" />
+                    }
+                    @Html.DisplayFor(modelItem => item.TrackingCode)
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.User.Name)  @Html.DisplayFor(modelItem => item.User.Surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeclarationDate)
+                </td>
+
+                <td>
+                   
+                    <a asp-action="EditDeclaration" asp-route-id="@item.Id" class="btn btn-success">Statusu dəyiş<i class="ml-1 fas fa-check"></i></a>
+
+                </td>
+                <td>
+                    <div class="d-flex flex-nowrap">
+                        <div class="btn btn-secondary mr-1 " data-title="Details" data-toggle="ajax-modal" data-target="#myModal"><i data-id="@item.Id" class="fas fa-info-circle declarationdetailsId"></i></div>
+
+                    </div>
+
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="modalDiv">
+
+</div>

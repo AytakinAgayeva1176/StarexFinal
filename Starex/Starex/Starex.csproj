@@ -5,13 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20201125105900_first.cs" />
-    <Compile Remove="Migrations\20201125105900_first.Designer.cs" />
-    <Compile Remove="Migrations\20201126130350_first.cs" />
-    <Compile Remove="Migrations\20201126130350_first.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />

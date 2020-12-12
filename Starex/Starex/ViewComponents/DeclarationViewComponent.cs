@@ -21,8 +21,8 @@ namespace Starex.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-           
-            return await Task.FromResult((IViewComponentResult)View());
+            var declarationView = new DeclarationViewModel();
+            return await Task.FromResult((IViewComponentResult)View(declarationView));
         }
     }
 }

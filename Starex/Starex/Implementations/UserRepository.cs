@@ -40,6 +40,8 @@ namespace Starex.Implementations
         {
             var user = _mapper.Map<ApplicationUser>(userViewModel);
             user.UserName = userViewModel.Email;
+            user.UserCode = Guid.NewGuid().ToString().Substring(0, 6);
+
             var result = await _userManager.CreateAsync(user, userViewModel.Password);
 
             UserBalance balanceTRY = new UserBalance()
@@ -80,11 +82,14 @@ namespace Starex.Implementations
 
         public async Task<IdentityResult> Update(SettingsViewModel viewModel)
         {
-            var user = _starexDbContext.Users.FirstOrDefault(x => x.Id == viewModel.Id);
-            user = _mapper.Map<ApplicationUser>(viewModel);
+            var _muser = _starexDbContext.Users.FirstOrDefault(x => x.Id == viewModel.Id);
+           var user = _mapper.Map(viewModel, _muser);
             user.UserName = viewModel.Email;
-            _starexDbContext.Entry(user).State = EntityState.Modified;
+            var newPassword = _userManager.PasswordHasher.HashPassword(user, viewModel.Password);
+            user.PasswordHash = newPassword;
+           
             var result = await _userManager.UpdateAsync(user);
+
 
             return result;
         }

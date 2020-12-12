@@ -9,13 +9,15 @@ namespace Starex.ViewModels
     public class OrderViewModel
     {
         public int Id { get; set; }
-        public string Url { get; set; }
+
+		[Required]
+		public string Url { get; set; }
 
 		[Required]
 		public int Quantity { get; set; }
 
 		[Required]
-		public int ProductSize { get; set; }
+		public string ProductSize { get; set; }
 
 		[Required]
 		public string ProductColor { get; set; }
@@ -31,7 +33,7 @@ namespace Starex.ViewModels
 		[Required]
 		public decimal PriceResult { get; set; }
 
-		public int? CountryId { get; set; }
+		public int CountryId { get; set; }
 		public DateTime CreationDate { get; set; }
 		public int StatusId { get; set; }
 		public string TrackingCode { get; set; }

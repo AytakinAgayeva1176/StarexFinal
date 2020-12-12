@@ -45,7 +45,7 @@ namespace Starex.Controllers
 
                 if (result==true)
                 {
-                    return RedirectToAction("Dashboard","Home");
+                    return Ok(new { href = "/Home/Dashboard" });
                 }
                 else
                 {
@@ -59,23 +59,28 @@ namespace Starex.Controllers
         }
 
 
-        public IActionResult EditOrder(int id)
+        public async Task<IActionResult> DeleteOrder(int id)
         {
-          var order=  orderRepository.GetOrderById(id);
-            return View(order);
+           await orderRepository.Delete(id);
+
+            return RedirectToAction("Dashboard","Home");
         }
 
-        [HttpPost]
-        public async Task<IActionResult> EditOrder(Order order)
+        public IActionResult Pay(int id)
         {
-            if (ModelState.IsValid)
+            var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+             var result = orderRepository.Pay(id, userId);
+            if (result==true)
             {
-                await orderRepository.Update(order);
-                return RedirectToAction("");
+                return RedirectToAction("Dashboard", "Home");
+            }
+            else
+            {
+                TempData["message"] = "Balansda kifayət qədər vəsait yoxdur.";
+                return RedirectToAction("Dashboard", "Home");
             }
 
-            return View(order);
-
         }
+
     }
 }

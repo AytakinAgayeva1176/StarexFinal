@@ -11,7 +11,7 @@ namespace Starex.Interfaces
     {
         Task<bool> Create(OrderViewModel orderViewModel);
         Task Delete(int id);
-        Task Update(Order order);
+        bool Pay(int id, string userId);
         Task<Order> GetOrderById(int id);
 
     }

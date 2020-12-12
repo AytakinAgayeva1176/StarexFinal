@@ -143,25 +143,32 @@ namespace Starex.Controllers
             {
                 await signInManager.SignOutAsync();
                 var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Email == loginViewModel.Email);
-                if (user.EmailConfirmed == true)
+                if (user!=null)
                 {
-                    var result = await _userRepository.Login(loginViewModel);
-
-                    if (result.Succeeded)
+                    if (user.EmailConfirmed == true)
                     {
-                        return RedirectToAction("Dashboard", "Home");
-                    }
+                        var result = await _userRepository.Login(loginViewModel);
 
+                        if (result.Succeeded)
+                        {
+                            return RedirectToAction("Dashboard", "Home");
+                        }
+
+                        else
+                        {
+                            ModelState.AddModelError(string.Empty, "Daxil etdiyiniz e-mail və ya şifrə yanlışdır");
+                        }
+                    }
                     else
                     {
-                        ModelState.AddModelError(string.Empty, "Ugursuz emeliyyat");
+                        ModelState.AddModelError(string.Empty, "Daxil etdiyiniz e-mail və ya şifrə yanlışdır");
                     }
                 }
+
                 else
                 {
-                    TempData["Message"] = "Email yanlishdir";
+                    ModelState.AddModelError(string.Empty, "Daxil etdiyiniz e-mail yanlışdır");
                 }
-
             }
             return View(loginViewModel);
         }
@@ -213,7 +220,7 @@ namespace Starex.Controllers
 
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Ugursuz emeliyyat");
+                    ModelState.AddModelError(string.Empty, "Əməliyyat yerinə yetirilmədi");
                 }
 
             }
@@ -238,7 +245,6 @@ namespace Starex.Controllers
             var result = await userManager.ConfirmEmailAsync(user, token);
             if (result.Succeeded)
             {
-                TempData["Message"] = "Emeliyyat ugurludur";
                 return RedirectToAction("Login", "Account", TempData["Message"]);
             }
 

@@ -16,7 +16,7 @@ namespace Starex.Models
 		public string TrackingCode { get; set; }
 
 		[Required]
-		public int? CountryId { get; set; }
+		public int CountryId { get; set; }
 
 		[Required]
 		public string Url { get; set; }
@@ -25,7 +25,7 @@ namespace Starex.Models
 		public int Quantity { get; set; }
 
 		[Required]
-		public int ProductSize { get; set; }
+		public string ProductSize { get; set; }
 
 		[Required]
 		public string ProductColor { get; set; }

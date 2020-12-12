@@ -84,6 +84,27 @@ namespace Starex.Controllers
             return View(declarationViewModel);
         }
 
+        public async Task<IActionResult> DeleteDeclaration(int id)
+        {
+            await _declarationRepository.Delete(id);
 
+            return RedirectToAction("Dashboard", "Home");
+        }
+
+        public IActionResult Pay(int id)
+        {
+            var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var result = _declarationRepository.Pay(id, userId);
+            if (result == true)
+            {
+                return RedirectToAction("Dashboard", "Home");
+            }
+            else
+            {
+                TempData["message"] = "Balansda kifayət qədər vəsait yoxdur.";
+                return RedirectToAction("Dashboard", "Home");
+            }
+
+        }
     }
 }

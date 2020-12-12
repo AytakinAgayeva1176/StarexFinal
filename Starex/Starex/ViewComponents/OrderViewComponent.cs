@@ -9,10 +9,10 @@ namespace Starex.ViewComponents
 {
     public class OrderViewComponent:ViewComponent
     {
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(OrderViewModel orderViewModel)
         {
-            var orderviewmodel = new OrderViewModel();
-            return await Task.FromResult((IViewComponentResult)View(orderviewmodel));
+            
+            return await Task.FromResult((IViewComponentResult)View(orderViewModel));
         }
     }
 }

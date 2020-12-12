@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Starex.Models.Order>
+
+<div class="table-responsive resizable-table">
+    <table class="table table-bordered w-100">
+        <thead class="w-100">
+            <tr>
+                <th scope="col">Sifariş nömrəsi</th>
+                <th scope="col">Sifariş Linki</th>
+                <th>Qeyd</th>
+                <th>Yenilənmə tarixi</th>
+                <th> Miqdar </th>
+                <th>Rəng</th>
+                <th>Ölçü</th>
+                <th>Qiymət</th>
+                <th> Türkiyədaxili kargo</th>
+                <th>Cəmi qiymət </th>
+                <th> Ödəmə</th>
+                <th> Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                @foreach (var item in Model)
+                {
+                    <tr scope="row">
+                        <td>
+                            <div class="d-flex">
+                                @if (item.CountryId == 1)
+                                {
+                                    <img src="~/images/usa.7b416161.png" />
+                                }
+                                else if (item.CountryId == 2)
+                                {
+                                    <img src="~/images/turkey.png" />
+                                }
+
+                                else
+                                {
+                                    <img src="~/images/chin.png" />
+                                }
+                                @Html.DisplayFor(modelItem => item.TrackingCode)
+                            </div>
+
+                        </td>
+                        <td class="url" style="table-layout: fixed;">@Html.DisplayFor(modelItem => item.Url)</td>
+                        <td> @Html.DisplayFor(modelItem => item.Comment)</td>
+                        <td> @Html.DisplayFor(modelItem => item.CreationDate)</td>
+                        <td> @Html.DisplayFor(modelItem => item.Quantity)</td>
+                        <td> @Html.DisplayFor(modelItem => item.ProductColor)</td>
+                        <td> @Html.DisplayFor(modelItem => item.ProductSize)</td>
+                        <td> @Html.DisplayFor(modelItem => item.Product_Price) </td>
+                        <td> @Html.DisplayFor(modelItem => item.Cargo_Price)</td>
+                        <td> @Html.DisplayFor(modelItem => item.PriceResult) </td>
+                        <td>
+                            @if (item.StatusId == 1)
+                            {
+                                <a asp-action="Pay" asp-controller="Order" asp-route-id="@item.Id" style="color:white;" class="btn btn-warning mr-1">ÖDƏ</a>
+                            }
+
+                            else
+                            {
+
+                                <a href="" style=" cursor: not-allowed;opacity: 0.5;" disabled class="btn btn-primary">Ödənilib</a>
+                            }
+                        </td>
+                        <td>
+                            <a asp-action="DeleteOrder" asp-controller="Order" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete? This action cannot be undone.');"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+
+            }
+        </tbody>
+    </table>
+
+</div>

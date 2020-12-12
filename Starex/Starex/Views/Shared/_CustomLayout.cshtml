@@ -4,14 +4,16 @@
 @{
 
     var user = await userManager.GetUserAsync(User);
-    var displayName ="";
+    var displayName = "";
 }
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title>@ViewData["Title"] - Starex</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/reset.css" />
     <link rel="stylesheet" href="~/css/custom.css" />
     <link href="~/select2/css/select2.min.css" rel="stylesheet" />
@@ -65,13 +67,11 @@
                                     <li class="pt-3 dropdown_menu">
                                         <ul class="dropdown navigate-menu">
 
-                                            <li><a class="scroll-item" href="/Home/Dashboard/#/address">Xaricdəki ünvanlarım</a></li>
-                                            <li><a class="scroll-item" href="/Home/Dashboard/#/orders">Sifarişlərim</a></li>
-                                            <li><a class="scroll-item" href="/Home/Dashboard/#/declarations">Bağlamalar/Bəyannamələr</a></li>
-                                            <li><a class="scroll-item" href="/Home/Dashboard/#/couriers">Kuryer</a></li>
-                                            <li><a class="scroll-item" href="/Home/Dashboard/#/balance">Balans</a></li>
-                                            <li><a class="scroll-item" href="/Home/Dashboard/#/tickets">Müraciətlər</a></li>
-                                            <li><a asp-controller="Account"  asp-action="Settings" asp-route-id="@user.Id">Tənzimləmələr</a></li>
+                                            <li><a class="scroll-item" href="/Home/Dashboard#/address">Xaricdəki ünvanlarım</a></li>
+                                            <li><a class="scroll-item" href="/Home/Dashboard#/orders">Sifarişlərim</a></li>
+                                            <li><a class="scroll-item" href="/Home/Dashboard#/declarations">Bağlamalar/Bəyannamələr</a></li>
+                                            <li><a class="scroll-item" href="/Home/Dashboard#/balance">Balans</a></li>
+                                            <li><a asp-controller="Account" asp-action="Settings" asp-route-id="@user.Id">Tənzimləmələr</a></li>
                                             <li><a href="/Account/LogOut/" id="logout-link">Çıxış</a></li>
                                         </ul>
                                     </li>
@@ -174,9 +174,10 @@
 
                     </div>
 
-                    @if (signInManager.IsSignedIn(User)) {
+                    @if (signInManager.IsSignedIn(User))
+                    {
                         <div class="notify-menu flex-lg-end d-flex align-items-center col-6 col-lg-2 order-lg-3 order-1">
-                            <a href=""><i class="fas fa-plus"></i></a>
+                            <a href="/Home/Dashboard/#/address"><i class="fas fa-plus"></i></a>
                             <a href=""><i class="fas fa-newspaper ml-3"></i></a>
                             <a href=""><i class="fas fa-bell ml-3"></i></a>
                         </div>
@@ -185,9 +186,9 @@
                 </div>
 
             </div>
-            </div>
+        </div>
 
-</header>
+    </header>
 
     @RenderBody()
 
@@ -257,10 +258,14 @@
 
 
     <script src="https://kit.fontawesome.com/4d10e62fd0.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="~/select2.single.init.js"></script>
     <script src="~/select2/js/select2.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
     <script src="~/js/script.js"></script>
+    <script src="~/js/ajax.Crud.Serializer.js"></script>
+    <script src="~/js/mask.js"></script>
 </body>
 
 </html>

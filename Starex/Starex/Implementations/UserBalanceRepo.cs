@@ -36,9 +36,15 @@ namespace Starex.Implementations
            
         }
 
-        public void Decrease(decimal amount)
+        public void Decrease(string userId, int currencyId, decimal amount)
         {
-            throw new NotImplementedException();
+            var userbalance = _context.UserBalances.FirstOrDefault(x => x.UserId == userId && x.CurrencyId == currencyId);
+            if (userbalance != null)
+            {
+                userbalance.Balance -= amount;
+                _context.UserBalances.Update(userbalance);
+                _context.SaveChanges();
+            }
         }
 
      

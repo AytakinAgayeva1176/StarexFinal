@@ -58,13 +58,13 @@
                         <div class="col-md-12">
                             <div class="form-line">
                                 <label asp-for="Address" class="control-label"></label>
-                                <input asp-for="Address" class="form-control" />
+                                <input asp-for="Address" class="form-control" placeholder="Məs: Bakı şəhəri, C.Kərimov küç. 18. ev 9"/>
                                 <span asp-validation-for="Address" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-line">
-                                <label asp-for="WarehouseId" class="control-label"></label>
+                                <label class="control-label">Bağlamaları təhvil almaq istədiyiniz filial</label>
                                 <select asp-for="WarehouseId" asp-items="@ViewBag.Warehouse" class="form-control">
                                     <option selected disabled>--------</option>
                                 </select>
@@ -102,8 +102,8 @@
                         <div class="col-md-6">
                             <div class="form-line">
                                 <label asp-for="PhoneNumber" class="control-label"></label>
-                                <input asp-for="PhoneNumber" class="form-control" />
-                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                <input asp-for="PhoneNumber" class="form-control" id="phone" />
+                                <span asp-validation-for="PhoneNumber"  class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-md-6">

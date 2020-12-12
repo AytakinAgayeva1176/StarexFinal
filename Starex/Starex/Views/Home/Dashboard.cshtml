@@ -1,16 +1,22 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject SignInManager<ApplicationUser> signInManager
 @inject UserManager<ApplicationUser> userManager
-@model Starex.ViewModels.DeclarationViewModel
+@model IEnumerable<Order>
 @{
 
     var user = await userManager.GetUserAsync(User);
     var displayName = "";
+    var usercode = "";
 }
 
 @{
     ViewData["Title"] = "Dashboard";
     Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}
+
+@if (signInManager.IsSignedIn(User))
+{
+    usercode = user.UserCode;
 }
 
 <main class="pt-4 dashboard-content">
@@ -22,9 +28,10 @@
                 @if (signInManager.IsSignedIn(User))
                 {
                     displayName = user.Name + " " + user.Surname;
+                    usercode = user.UserCode;
                     <div class="col-12 col-lg-4 mb-3">
                         <h2>@displayName </h2>
-                        <p>MÜŞTƏRİ KODU: <strong> #902974</strong></p>
+                        <p>MÜŞTƏRİ KODU: <strong> #@usercode</strong></p>
                     </div>
 
                 }
@@ -106,12 +113,10 @@
         <div class="row">
             <div class="col-12 dashboard-tabs">
                 <ul class="order-nav bg-white d-flex flex-wrap align-items-center w-100 border mb-1">
-                    <li class="active-li"><a href="#/address">Xaricdəki ünvanlarım</a></li>
-                    <li><a href="#/orders">Sifarişlərim</a></li>
-                    <li><a href="#/declarations">Bağlamalar/Bəyannamələr</a></li>
-                    <li><a href="#/couriers">Kuryerlər</a></li>
-                    <li><a href="#/balance">Balans</a></li>
-                    <li><a href="#/tickets">Müraciətlər</a></li>
+                    <li index="address" class="active-li"><a href="#/address">Xaricdəki ünvanlarım</a></li>
+                    <li index="orders"><a href="#/orders">Sifarişlərim</a></li>
+                    <li index="declarations"><a href="#/declarations">Bağlamalar/Bəyannamələr</a></li>
+                    <li index="balance"><a href="#/balance">Balans</a></li>
                 </ul>
             </div>
         </div>
@@ -131,16 +136,12 @@
                     @(await Component.InvokeAsync<Starex.ViewComponents.OrderViewComponent>())
                 </div>
             </div>
-            
+
             <div class="d-none new-declaration">
                 <div class=" col-12 mt-3 d-flex p-4 flex-column align-items-center justify-content-center border bg-white" style="box-sizing:border-box;">
-                  
-                    
-                        @(await Component.InvokeAsync<Starex.ViewComponents.DeclarationViewComponent>());
-                    
-                        
 
-                    
+                    @(await Component.InvokeAsync<Starex.ViewComponents.DeclarationViewComponent>())
+
                 </div>
             </div>
 
@@ -151,7 +152,7 @@
     <section class="dashboard pb-4">
         <div class="container">
             <div class="dashboard-tabs-content">
-                <div class="address bg-white border tabs tabs-content  mt-4">
+                <div class="address d-none bg-white border tabs tabs-content  mt-4" index="address">
                     <ul class="d-flex">
                         <li class="py-3 active-li">
                             <img src="~/images/Turk.png" alt="">
@@ -175,6 +176,9 @@
                                 <div class="address-item">
                                     <strong>Adres başlığı</strong>
                                     <p>Starex</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
@@ -185,55 +189,82 @@
                                         <strong>Ad Soyad</strong>
                                         <p>@displayName</p>
                                     }
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
 
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>Adres 1</strong>
-                                    <p>Merkez mah. Degirmenbahce cad. no 26. İnci iş merkezi 902974.</p>
+                                    <p>Merkez mah. Degirmenbahce cad. no 26. İnci iş merkezi @usercode.</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>İl-Şehir</strong>
                                     <p>Istanbul</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>İlçe</strong>
                                     <p>Bahçelievler</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>Semt</strong>
                                     <p>Yenibosna</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>ZIP</strong>
                                     <p>34197</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>Ülke</strong>
                                     <p>Turkey</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>TC kimlik</strong>
                                     <p>99674408434</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>Mobil telefon</strong>
                                     <p>5454714371</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -250,54 +281,81 @@
                                         <strong>Name Surname</strong>
                                         <p>@displayName</p>
                                     }
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>Address 1</strong>
                                     <p>320 Cornell Dr Ste C3</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>Address 2</strong>
-                                    <p>902974 STAR EXPRESS</p>
+                                    <p>@usercode STAR EXPRESS</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>City</strong>
                                     <p>Wilmington</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>Region</strong>
                                     <p>DE</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>Direction</strong>
                                     <p>DE</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>ZIP</strong>
                                     <p>19801-5783</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>Country</strong>
                                     <p>United States</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>Phone</strong>
                                     <p>+1 (302) 476-81-93</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -311,6 +369,11 @@
                                 <div class="address-item">
                                     <strong>Address title</strong>
                                     <p>Starex</p>
+
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="col-md-5  my-3">
@@ -321,42 +384,64 @@
                                         <strong>Full name</strong>
                                         <p>@displayName</p>
                                     }
+
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5  my-3">
                                 <div class="address-item">
                                     <strong>Address 1</strong>
-                                    <p>WING LOCK HOUSE 5FL/ ROOM C, 1-3 lock Road Tsim Sha Tsui 902974 Aytakin Agayeva</p>
+                                    <p>WING LOCK HOUSE 5FL/ ROOM C, 1-3 lock Road Tsim Sha Tsui @usercode Aytakin Agayeva</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5  my-3">
                                 <div class="address-item">
                                     <strong>City</strong>
                                     <p>Hong Kong</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5  my-3">
                                 <div class="address-item">
                                     <strong>Region</strong>
                                     <p>Kowloon</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5  my-3">
                                 <div class="address-item">
                                     <strong>Zip</strong>
                                     <p>999077</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5  my-3">
                                 <div class="address-item">
                                     <strong>Country</strong>
                                     <p>Hong Kong</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5  my-3">
                                 <div class="address-item">
                                     <strong>Phone </strong>
                                     <p>+85254918983</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -368,6 +453,9 @@
                                 <div class="address-item">
                                     <strong>Address title</strong>
                                     <p>Starex</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
@@ -377,43 +465,64 @@
                                         displayName = user.Name + " " + user.Surname;
                                         <strong>Full name</strong>
                                         <p>@displayName</p>
+                                        <div data-tip="copy" class="copy-btn">
+                                            <i class="fas fa-copy"></i>
+                                        </div>
                                     }
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>Address 1</strong>
-                                    <p>香港九龙尖沙咀骆克道1-3A永乐大楼5C 902974 Aytakin Agayeva</p>
+                                    <p>香港九龙尖沙咀骆克道1-3A永乐大楼5C @usercode Aytakin Agayeva</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>City</strong>
                                     <p>香港</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>Region</strong>
                                     <p>九龙尖</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>Zip</strong>
                                     <p>999077</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>Country</strong>
                                     <p>香港</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5 my-3">
                                 <div class="address-item">
                                     <strong>Phone </strong>
                                     <p>+85254918983</p>
+                                    <div data-tip="copy" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -423,24 +532,63 @@
 
                 </div>
 
-                <div class="orders d-none mt-4">
+                <div class="orders d-none mt-4" index="orders">
+                    @{
+                        if (TempData["message"] != null)
+                        {
 
+                            <section class="register py-5">
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-8 justify-content-center " style="color: #D93025;box-sizing: border-box;
+                                            background-color: rgba(217, 48, 37, 0.26); padding: 14px 24px;text-align: center;">
+                                            <p style="line-height:1.6;font-size:16px;">
+                                                @TempData["message"]
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                        }
+                    }
                     <ul class="sub-nav bg-white d-flex flex-column flex-md-row w-100 border mb-4 list-unstyled">
-                        <li class="active-li"><a aria-current="page" href="#/orders">Hamısı (0)</a></li>
-                        <li><a href="#/orders/1">Səbət (0)</a></li>
-                        <li><a href="#/orders/2">Ödənildi (0)</a></li>
-                        <li><a href="#/orders/3">Sifariş verildi (0)</a></li>
-                        <li><a href="#/orders/11">Silindi (0)</a></li>
+                        <li class="active-li"><a aria-current="page" href="#/orders/0">Hamısı (@ViewBag.AllOrders)</a></li>
+                        <li><a href="#/orders/1">Səbət (@ViewBag.UnpaidOrders)</a></li>
+                        <li><a href="#/orders/2">Ödənildi (@ViewBag.PaidOrders)</a></li>
+                        <li><a href="#/orders/3">Sifariş verildi (@ViewBag.OrderedOrders)</a></li>
+                        <li><a href="#/orders/4">Silindi (@ViewBag.DeletedOrders)</a></li>
                     </ul>
 
 
-                    <div class="order-table bg-white border">
-                        @(await Component.InvokeAsync<Starex.ViewComponents.OrderTableViewComponent>())
+                    <div class="order-table bg-white border orderList">
+                        @*@(await Component.InvokeAsync<Starex.ViewComponents.AllOrdersTableViewComponent>())*@
+
+                    </div>
+
+
+                </div>
+
+                <div class="declarations d-none mt-4" index="declarations">
+
+                    <ul class="sub-nav bg-white d-flex flex-column flex-md-row w-100 border mb-4 list-unstyled">
+                        <li class="active-li"><a aria-current="page" href="#/orders/0">Hamısı (@ViewBag.allDeclarations)</a></li>
+                        <li><a href="#/declarations/1">Öncədən bəyan et (@ViewBag.declaredDeclarations)</a></li>
+                        <li><a href="#/declarations/2">Xarici anbardadır (@ViewBag.inForeignWarehouseDeclarations)</a></li>
+                        <li><a href="#/declarations/3">Yoldadır (@ViewBag.onTheWayDeclarations)</a></li>
+                        <li><a href="#/declarations/4">Yerli anbardadır (@ViewBag.inLocalWarehouseDeclarations)</a></li>
+                        <li><a href="#/declarations/5">Təhvil verildi (@ViewBag.deliveredDeclarations)</a></li>
+                    </ul>
+
+
+                    <div class="declaration-table bg-white border declarationList">
+
                     </div>
                 </div>
 
-                <div class="balance d-none mt-4">
-                        @(await Component.InvokeAsync<Starex.ViewComponents.BalanceViewComponent>())
+                <div class="balance d-none mt-4" index="balance">
+                 
+                    @(await Component.InvokeAsync<Starex.ViewComponents.BalanceViewComponent>())
 
                 </div>
             </div>

@@ -10,7 +10,7 @@ namespace Starex.Interfaces
     {
         void Create(UserBalance balance);
         void Increase(string userId, int currencyId ,decimal amount);
-        void Decrease(decimal amount);
+        void Decrease(string userId, int currencyId, decimal amount);
 
     }
 }

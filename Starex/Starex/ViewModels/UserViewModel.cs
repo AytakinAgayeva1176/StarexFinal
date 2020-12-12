@@ -68,5 +68,6 @@ namespace Starex.ViewModels
 		[Compare("Password", ErrorMessage = "Password doesn't match.")]
 		public string ConfirmPassword { get; set; }
 
+
 	}
 }

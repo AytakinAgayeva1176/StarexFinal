@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Starex.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -14,7 +13,6 @@ namespace Starex.ViewModels
     {
 		[NotMapped]
         public List<SelectViewModel> ProductsList { get; set; }
-        public int Id { get; set; }
 		[Required]
 		public int CountryId { get; set; }
 

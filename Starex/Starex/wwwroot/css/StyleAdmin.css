@@ -275,7 +275,114 @@ form h2 {
     border-bottom: 1px solid #24252a;
 }
 
+.form-control {
+    padding: 8px 10px;
+    font-size: 14px;
+    line-height: 19px;
+    border: 1px solid #e6e8eb;
+    border-radius: 0;
+    color: #666;
+    height: auto;
+    overflow: hidden;
+}
+
+.form-wrap label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #4b4b4b;
+}
+
+.form-wrap small {
+    font-size: 12.8px;
+    margin-left: 20px;
+}
+
+#chk {
+    position: absolute;
+    left: 20px;
+    top: -5px;
+}
+
 .listtable{
     background-color:rgba(0, 95, 181, 0.50);
     color:white;
 }
+
+
+
+.resizable-table {
+    display: block;
+}
+
+    .resizable-table table {
+        border-collapse: collapse;
+        border-spacing: 0px;
+    }
+
+
+    .resizable-table th {
+        background-color: #005FB5;
+        color: white;
+    }
+
+    .resizable-table tr:nth-child(odd) {
+        background-color: #EBEBEB;
+    }
+
+    .resizable-table td {
+        align-items: center;
+    }
+
+    .resizable-table img {
+        width: 22px;
+        height: 12px;
+        margin-right: 10px;
+    }
+
+[data-title]:hover:after {
+    opacity: 1;
+    transition: all 0.1s ease 0.5s;
+    visibility: visible;
+}
+
+[data-title]:after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: -1.6em;
+    left: 50%;
+    padding: 4px 4px 4px 8px;
+    color: #222;
+    white-space: nowrap;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0px 0px 4px #222;
+    -webkit-box-shadow: 0px 0px 4px #222;
+    box-shadow: 0px 0px 4px #222;
+    background-image: -moz-linear-gradient(top, #f8f8f8, #cccccc);
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f8f8f8),color-stop(1, #cccccc));
+    background-image: -webkit-linear-gradient(top, #f8f8f8, #cccccc);
+    background-image: -moz-linear-gradient(top, #f8f8f8, #cccccc);
+    background-image: -o-linear-gradient(top, #f8f8f8, #cccccc);
+    opacity: 0;
+    z-index: 99999;
+    visibility: hidden;
+}
+
+[data-title] {
+    position: relative;
+}
+
+.details img {
+    width: 22px;
+    height: 12px;
+    margin-right: 10px;
+}
+
+.declarationImage img {
+    transition: transform .5s; 
+    width: 200px;
+}
+    .declarationImage img:hover {
+        transform: scale(3); 
+    }

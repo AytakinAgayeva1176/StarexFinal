@@ -179,6 +179,17 @@ namespace Starex.Areas.Admin.Controllers
             }
             return View();
         }
+
+        public IActionResult DeleteManager(string id)
+        {
+            var manager = _context.Users.FirstOrDefault(x => x.Id == id);
+            if (manager!=null)
+            {
+                _context.Users.Remove(manager);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("Managers");
+        }
     }
 
 }

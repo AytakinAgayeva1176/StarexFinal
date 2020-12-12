@@ -6,50 +6,23 @@
 }
 
 
-<div class="table-responsive">
-    <table id="example4" class="display" style="min-width: 845px">
-        <thead>
+<div class="table-responsive resizable-table">
+    <table class="table table-bordered w-100">
+        <thead class="w-100">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.User)
+                    @Html.DisplayNameFor(model => model.TrackingCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.User.Name)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Status)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Country)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.TrackingCode)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Url)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Quantity)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ProductSize)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ProductColor)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Comment)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Product_Price)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Cargo_Price)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PriceResult)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.CreationDate)
                 </th>
-
+                <th></th>
                 <th></th>
             </tr>
         </thead>
@@ -58,52 +31,63 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.User)
-                    </td>
-                    <td>
-                        <span class="badge light badge-success">Paid</span>  @Html.DisplayFor(modelItem => item.Status.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Country.Name)
-                    </td>
-                    <td>
+
+                        @if (item.CountryId == 1)
+                        {
+                            <img src="~/images/usa.7b416161.png" />
+                        }
+                        else if (item.CountryId == 2)
+                        {
+                            <img src="~/images/turkey.png" />
+                        }
+
+                        else
+                        {
+                            <img src="~/images/chin.png" />
+                        }
                         @Html.DisplayFor(modelItem => item.TrackingCode)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Url)
+                    <td >
+                        @Html.DisplayFor(modelItem => item.User.Name)  @Html.DisplayFor(modelItem => item.User.Surname)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Quantity)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProductSize)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProductColor)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Comment)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Product_Price)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cargo_Price)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PriceResult)
+                        @Html.DisplayFor(modelItem => item.Status.Name)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.CreationDate)
                     </td>
 
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        @if (item.StatusId == 1)
+                        {
+                            <a href="" style=" cursor: not-allowed;opacity: 0.5;" disabled class="btn btn-success">Sifariş et<i class="ml-1 fas fa-check"></i></a>
+                        }
+                        @if (item.StatusId == 2)
+                        {
+                            <a asp-action="EditOrder" asp-route-id="@item.Id" class="btn btn-success" onclick="return confirm('Are you sure you want to change it?');">Sifariş et<i class="ml-1 fas fa-check"></i></a>
+                        }
+                        @if (item.StatusId == 3)
+                        {
+                            <a asp-action="CreateDeclaration" asp-route-id="@item.Id" class="btn btn-warning" style="color:white;" >Bəyan et<i class="ml-1 fas fa-check"></i></a>
+                        }
+
+
+                    </td>
+                    <td>
+                        <div class="d-flex flex-nowrap">
+                            <div  class="btn btn-secondary mr-1 " data-title="Details" data-toggle="ajax-modal" data-target="#myModal"><i data-id="@item.Id" class="fas fa-info-circle orderdetailsId"></i></div>
+                            <a asp-action="DeleteOrder" asp-route-id="@item.Id" class="btn btn-danger" data-title="Delete" onclick="return confirm('Are you sure you want to delete? This action cannot be undone.');"><i class="fas fa-trash"></i></a>
+
+
+                        </div>
+
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+<div class="modalDiv">
+
+</div>
+

@@ -28,9 +28,11 @@ namespace Starex.Implementations
             return result;
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            var declaration = await _context.Declarations.FindAsync(id);
+            _context.Declarations.Remove(declaration);
+            await _context.SaveChangesAsync();
         }
 
         public Task<Order> GetOrderById(int id)
@@ -38,9 +40,39 @@ namespace Starex.Implementations
             throw new NotImplementedException();
         }
 
-        public Task Update(Declaration declaration)
+        public bool Pay(int id, string userId)
         {
-            throw new NotImplementedException();
+            var currencyId = 0;
+            var declaration = _context.Declarations.Find(id);
+            if (declaration.CountryId == 2)
+            {
+                currencyId = 2;
+            }
+            else
+            {
+                currencyId = 1;
+            }
+            var result = false;
+            var userbalance = _context.UserBalances.FirstOrDefault(x => x.UserId == userId && x.CurrencyId == currencyId);
+            var balance = userbalance.Balance;
+            var amount = declaration.ShippingPrice;
+            if (declaration.StatusId == 1)
+            {
+                if (amount <= balance)
+                {
+                    
+                    _context.Declarations.Update(declaration);
+                    userbalance.Balance = balance - amount;
+                    _context.UserBalances.Update(userbalance);
+                    _context.SaveChanges();
+
+                    result = true;
+
+
+                }
+            }
+
+            return result;
         }
     }
 }

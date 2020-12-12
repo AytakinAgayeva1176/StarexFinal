@@ -15,7 +15,6 @@ namespace Starex.Models
         [Required]
         public string Name { get; set; }
         public ICollection<Product> Products { get; set; }
-        public ICollection<InquiryForm> Appeals { get; set; }
         public ICollection<Order> Orders { get; set; }
         public ICollection<Declaration> Declarations { get; set; }
     }

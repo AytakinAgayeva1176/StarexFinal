@@ -1,0 +1,153 @@
+﻿@model IEnumerable<Starex.Models.Declaration>
+
+@{
+    Layout = null;
+    var statusId = 0;
+}
+
+<div class="table-responsive resizable-table">
+    <table class="table table-bordered w-100 m-0">
+        <thead class="w-100">
+            <tr>
+                <th scope="col">İzləmə kodu</th>
+                <th>Mağaza</th>
+                <th> Məhsulun qiyməti </th>
+                <th>Çatdırılma Qiyməti</th>
+                <th>Miqdar</th>
+                <th>Çəki</th>
+                <th> Anbar</th>
+                <th>Tracking code </th>
+                <th>Sipariş numarası</th>
+                <th> Ödəmə</th>
+                <th> Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr scope="row">
+                    <td>
+                        <div class="d-flex">
+                            @if (item.CountryId == 1)
+                            {
+                                <img src="~/images/usa.7b416161.png" />
+                            }
+                            else if (item.CountryId == 2)
+                            {
+                                <img src="~/images/turkey.png" />
+                            }
+
+                            else
+                            {
+                                <img src="~/images/chin.png" />
+                            }
+                            @Html.DisplayFor(modelItem => item.TrackingCode)
+                        </div>
+
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.Shop)</td>
+                    <td> @Html.DisplayFor(modelItem => item.ProductPrice)</td>
+                    <td> @Html.DisplayFor(modelItem => item.ShippingPrice)</td>
+                    <td> @Html.DisplayFor(modelItem => item.Quantity)</td>
+                    <td> @Html.DisplayFor(modelItem => item.ProductWeight)</td>
+                    <td> @Html.DisplayFor(modelItem => item.WarehouseId)</td>
+                    <td> @Html.DisplayFor(modelItem => item.DeliveryCode) </td>
+                    <td> @Html.DisplayFor(modelItem => item.OrderNumber)</td>
+
+                    @if (item.StatusId == 4)
+                    {
+                        statusId = item.StatusId;
+                        <td>
+                            <a asp-action="Pay" asp-controller="Declaration" asp-route-id="@item.Id" style="color:white;" class="btn btn-warning mr-1">ÖDƏ</a>
+                        </td>
+                    }
+
+
+
+                    else
+                    {
+                        <td>
+                            <p style="font-size:12px;">çəki təyin olunmayıb</p>
+                        </td>
+                    }
+
+                    <td>
+                        <a asp-action="DeleteDeclaration" asp-controller="Declaration" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete? This action cannot be undone.');"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+            }
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,62 @@
+﻿@model Starex.Models.Declaration
+
+@{
+    ViewData["Title"] = "EditDeclaration";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>EditDeclaration</h1>
+
+<h4>Declaration</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditDeclaration">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="CountryId" />
+            <input type="hidden" asp-for="TrackingCode" />
+            <input type="hidden" asp-for="Shop" />
+            <input type="hidden" asp-for="ProductType" />
+            <input type="hidden" asp-for="LiquidOrNot" />
+            <input type="hidden" asp-for="Quantity" />
+            <input type="hidden" asp-for="ProductPrice" />
+            <input type="hidden" asp-for="Comment" />
+            <input type="hidden" asp-for="FileName" />
+            <input type="hidden" asp-for="DeliveryCode" />
+            <input type="hidden" asp-for="OrderNumber" />
+            <input type="hidden" asp-for="WarehouseId" />
+            <input type="hidden" asp-for="DeclarationDate" />
+            <input type="hidden" asp-for="UserId" />
+            <input type="hidden" asp-for="Id" />
+
+
+    
+            <div class="form-group">
+                <label asp-for="ShippingPrice" class="control-label"></label>
+                <input asp-for="ShippingPrice" class="form-control" />
+                <span asp-validation-for="ShippingPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductWeight" class="control-label"></label>
+                <input asp-for="ProductWeight" class="form-control" />
+                <span asp-validation-for="ProductWeight" class="text-danger"></span>
+            </div>
+      
+            <div class="form-group">
+                <label asp-for="StatusId" class="control-label"></label>
+                <select asp-for="StatusId" class="form-control" asp-items="ViewBag.StatusId"></select>
+                <span asp-validation-for="StatusId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

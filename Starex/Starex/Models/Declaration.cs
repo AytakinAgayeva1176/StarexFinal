@@ -54,7 +54,6 @@ namespace Starex.Models
 		public decimal ShippingPrice { get; set; }
 		public decimal ProductWeight { get; set; }
 
-		
 		public int WarehouseId { get; set; }
 	
 		[Required]

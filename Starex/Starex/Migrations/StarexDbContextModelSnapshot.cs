@@ -223,6 +223,9 @@ namespace Starex.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
+                    b.Property<string>("UserCode")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
@@ -428,136 +431,27 @@ namespace Starex.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Starex.Models.FormCategory", b =>
+            modelBuilder.Entity("Starex.Models.Notification", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("FormCategories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Sifariş haqqında məlumat"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Tapılmayan bağlama"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Hesabımda mənə məxsus olmayan bağlama"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Sifarişin alınması"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Bağlamanın gecikməsi"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Yanlış gələn sifariş"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Tapılmayan bağlama"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Geri qaytarilma"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "Balansla bağlı"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Name = "Təklif və iradlar"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Name = "Digər"
-                        });
-                });
-
-            modelBuilder.Entity("Starex.Models.InquiryForm", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CountryId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("FileName")
+                    b.Property<string>("Message")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Note")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Statusid")
-                        .HasColumnType("int");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("CountryId");
-
-                    b.HasIndex("Statusid");
-
                     b.HasIndex("UserId");
 
-                    b.ToTable("Forms");
-                });
-
-            modelBuilder.Entity("Starex.Models.InquiryFormStatus", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("InquiryFormStatus");
+                    b.ToTable("Notifications");
                 });
 
             modelBuilder.Entity("Starex.Models.Order", b =>
@@ -573,8 +467,7 @@ namespace Starex.Migrations
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CountryId")
-                        .IsRequired()
+                    b.Property<int>("CountryId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreationDate")
@@ -587,8 +480,9 @@ namespace Starex.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProductSize")
-                        .HasColumnType("int");
+                    b.Property<string>("ProductSize")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Product_Price")
                         .HasColumnType("decimal(18,2)");
@@ -871,63 +765,6 @@ namespace Starex.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Starex.ViewModels.SettingsViewModel", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FinCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(7)")
-                        .HasMaxLength(7);
-
-                    b.Property<string>("Gender")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GovId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GovIdPrefix")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Surname")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("WarehouseId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SettingsViewModel");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -1013,31 +850,11 @@ namespace Starex.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Starex.Models.InquiryForm", b =>
+            modelBuilder.Entity("Starex.Models.Notification", b =>
                 {
-                    b.HasOne("Starex.Models.FormCategory", "Category")
-                        .WithMany("Forms")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Starex.Models.Country", "Country")
-                        .WithMany("Appeals")
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Starex.Models.InquiryFormStatus", "Status")
-                        .WithMany()
-                        .HasForeignKey("Statusid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Starex.Models.ApplicationUser", "User")
-                        .WithMany("Forms")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("Notifications")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Starex.Models.Order", b =>

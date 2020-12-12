@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Starex.Models.ApplicationUser>
+
+@{
+    ViewData["Title"] = "Managers";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+    <div class="table-responsive resizable-table">
+        <table class="table table-bordered w-80">
+            <thead class="w-100">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th></th>
+               </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+
+                        <td>
+                            <div class="d-flex flex-nowrap">
+                               <a asp-action="DeleteManager" asp-route-id="@item.Id" class="btn btn-danger"
+                                  data-title="Delete" onclick="return confirm('Are you sure you want to delete? This action cannot be undone.');">
+                               Delete<i class="fas fa-trash"></i></a>
+
+
+                            </div>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
