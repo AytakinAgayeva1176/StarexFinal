@@ -164,6 +164,18 @@ namespace Starex.Controllers
 
         }
 
+
+        [HttpPost]
+        public async Task<PartialViewResult> GetAllNotifications(int id)
+        {
+            var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            var declarations = await _context.Notifications.Where(x => x.UserId == userId).ToListAsync();
+       
+            return PartialView("_DeclarationsList", declarations);
+
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

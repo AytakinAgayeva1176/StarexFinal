@@ -101,7 +101,7 @@ namespace Starex.Controllers
             }
             else
             {
-                TempData["message"] = "Balansda kifayət qədər vəsait yoxdur.";
+                TempData["message2"] = "Balansda kifayət qədər vəsait yoxdur.";
                 return RedirectToAction("Dashboard", "Home");
             }
 

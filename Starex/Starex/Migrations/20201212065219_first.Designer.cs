@@ -10,7 +10,7 @@ using Starex.Contexts;
 namespace Starex.Migrations
 {
     [DbContext(typeof(StarexDbContext))]
-    [Migration("20201210231757_first")]
+    [Migration("20201212065219_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -342,6 +342,9 @@ namespace Starex.Migrations
                     b.Property<string>("OrderNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PayedOrNot")
+                        .HasColumnType("bit");
 
                     b.Property<decimal>("ProductPrice")
                         .HasColumnType("decimal(18,2)");

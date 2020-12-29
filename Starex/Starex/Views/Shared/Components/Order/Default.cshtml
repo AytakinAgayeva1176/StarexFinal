@@ -3,7 +3,7 @@
     Layout = null;
 }
 
-<div class="form-wrap">
+<div class="form-wrap w-100">
     <form asp-controller="Order" asp-action="NewOrder" id="submitOrderForm" method="post">
         <div class="border border-info  p-4  mb-4 col-12">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -16,7 +16,7 @@
                 <div class="col-lg-6">
                     <div class="my-2 position-relative form-group">
                         <label class="control-label">Link</label>
-                        <input asp-for="Url" type="url"  class="form-control" />
+                        <input asp-for="Url" type="url" class="form-control" />
                         <span asp-validation-for="Url" class="text-danger"></span>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row flex-lg-row">
+            <div class="row ">
                 <div class="col-lg-4 order-last order-lg-first">
                     <div class="my-2 position-relative form-group">
                         <label class="control-label">Şərh</label>
@@ -79,28 +79,18 @@
         </div>
 
         <div class="row mb-3">
-            <div class="col">
-                <p>
-                    İndi istədiyiniz bütün linkləri 1 sifariş şəklində göndərə bilərsiniz.
-                    Bunun üçün ekranın sağ aşağı kənarında "Sifariş əlavə et" düyməsini
-                    sıxaraq növbəti linki əlavə etməlisiniz.
-                </p>
-                <hr>
+            <div class="col-12">
+
             </div>
         </div>
 
-
         <div class="row form-bottom">
-            <div class="col-12 d-flex justify-content-between">
-                <div class="position-relative form-check">
-                    <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input"> Məsafəli satış <a href="/pages/conditions/" target="_blank" class="text-primary rules-link">şərtlərini</a> qəbul edirəm
-                    </label>
+            <div class="col-12 d-flex justify-content-center">
 
-                    <div class="form-group">
-                        <input  type="submit" value="Göndər" class="btn send-btn mx-2 btn btn-secondary" />
-                    </div>
+                <div class="form-group ">
+                    <input style="color:white;" type="submit" value="Göndər" class="btn send-btn mx-2 btn btn-warning" />
                 </div>
+
 
             </div>
         </div>

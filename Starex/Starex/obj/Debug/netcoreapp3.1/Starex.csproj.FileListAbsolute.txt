@@ -338,11 +338,9 @@ C:\Users\Code\source\repos\StarexFinalProject\Starex\Starex\obj\Debug\netcoreapp
 C:\Users\Code\source\repos\StarexFinalProject\Starex\Starex\obj\Debug\netcoreapp3.1\Razor\Views\Home\Shop.cshtml.g.cs
 C:\Users\Code\source\repos\StarexFinalProject\Starex\Starex\obj\Debug\netcoreapp3.1\Razor\Views\Home\Tariff.cshtml.g.cs
 C:\Users\Code\source\repos\StarexFinalProject\Starex\Starex\obj\Debug\netcoreapp3.1\Razor\Views\Home\Tranportation.cshtml.g.cs
-C:\Users\Code\source\repos\StarexFinalProject\Starex\Starex\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\AllOrdersTable\Default.cshtml.g.cs
 C:\Users\Code\source\repos\StarexFinalProject\Starex\Starex\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Balance\Default.cshtml.g.cs
 C:\Users\Code\source\repos\StarexFinalProject\Starex\Starex\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Country\Default.cshtml.g.cs
 C:\Users\Code\source\repos\StarexFinalProject\Starex\Starex\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Declaration\Default.cshtml.g.cs
-C:\Users\Code\source\repos\StarexFinalProject\Starex\Starex\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Order\Default.cshtml.g.cs
 C:\Users\Code\source\repos\StarexFinalProject\Starex\Starex\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Code\source\repos\StarexFinalProject\Starex\Starex\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_CustomLayout.cshtml.g.cs
 C:\Users\Code\source\repos\StarexFinalProject\Starex\Starex\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -367,3 +365,6 @@ C:\Users\Code\source\repos\StarexFinalProject\Starex\Starex\obj\Debug\netcoreapp
 C:\Users\Code\source\repos\StarexFinalProject\Starex\Starex\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_DeclarationDetails.cshtml.g.cs
 C:\Users\Code\source\repos\StarexFinalProject\Starex\Starex\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Managers.cshtml.g.cs
 C:\Users\Code\source\repos\StarexFinalProject\Starex\Starex\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\EditDeclaration.cshtml.g.cs
+C:\Users\Code\source\repos\StarexFinalProject\Starex\Starex\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Notifications.cshtml.g.cs
+C:\Users\Code\source\repos\StarexFinalProject\Starex\Starex\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Notification\Default.cshtml.g.cs
+C:\Users\Code\source\repos\StarexFinalProject\Starex\Starex\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Order\Default.cshtml.g.cs

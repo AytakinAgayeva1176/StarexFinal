@@ -341,6 +341,9 @@ namespace Starex.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("PayedOrNot")
+                        .HasColumnType("bit");
+
                     b.Property<decimal>("ProductPrice")
                         .HasColumnType("decimal(18,2)");
 

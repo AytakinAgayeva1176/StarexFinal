@@ -4,7 +4,7 @@
 
 }
 
-<div class="form-wrap">
+<div class="form-wrap w-100">
     <form asp-controller="Declaration" asp-action="NewDeclaration" method="post" enctype="multipart/form-data">
         <div class="border border-info  p-4  mb-4 col-12">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -52,7 +52,8 @@
                         <span asp-validation-for="ProductPrice" class="text-danger"></span>
                     </div>
                 </div>
-      
+      </div>
+            <div class="row">
                 <div class="col-lg-3">
                     <div class="my-2 form-group">
                         <label asp-for="File" class="control-label">Sənəd:</label>
@@ -87,7 +88,7 @@
         </div>
 
         <div class="row mb-3">
-            <div class="col">
+            <div class="col-12">
               
             </div>
         </div>

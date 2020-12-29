@@ -170,6 +170,7 @@ $(document).ready(function () {
     })
 
     $(document).on("click", ".dashboard-tabs li", function () {
+         $(".notification-table").addClass("d-none");
         $(".dashboard-tabs li").removeClass("active-li")
         $(this).addClass("active-li")
         $(".componentss>div>div").addClass("d-none")
@@ -185,6 +186,7 @@ $(document).ready(function () {
 
 
     $(document).on("click", ".dropdown_menu li", function () {
+        $(".notification-table").addClass("d-none");
         $(".dashboard-tabs li").removeClass("active-li")
         $(".dashboard-tabs li").eq($(this).index()).addClass("active-li")
         $(".componentss>div>div").addClass("d-none")
@@ -200,6 +202,7 @@ $(document).ready(function () {
 
     var form;
     function AddOnClick() {
+        $(".notification-table").addClass("d-none");
         $(".dashboard-tabs li").removeClass("active-li")
         $(".dashboard-tabs-content>div").addClass("d-none")
         $(".new-order").addClass("d-none")
@@ -233,6 +236,18 @@ $(document).ready(function () {
     });
 
 
+    $(document).on("click", ".bell", function () {
+        $(".dashboard-tabs li").removeClass("active-li")
+        $(".dashboard-tabs-content>div").addClass("d-none")
+        $(".new-order").addClass("d-none")
+        $(".new-declaration").addClass("d-none")
+        $(".order-country").addClass("d-none")
+        $(".notification-table").removeClass("d-none");
+        $(".dashboard-tabs-content>div").eq(4).removeClass("d-none")
+
+    })
+
+
 
 
     $(document).on("click", ".dashboard-tabs li[index='orders']", function () {
@@ -249,6 +264,19 @@ $(document).ready(function () {
 
     GetOrders();
     GetDeclarations();
+ 
+
+    $(document).on("click", ".fa-bell", function () {
+        $(".notification-table").removeClass("d-none");
+        $(".dashboard-tabs li").removeClass("active-li")
+        $(".componentss>div>div").addClass("d-none")
+        $(".dashboard-tabs-content>div").addClass("d-none")
+        path = $(".dropdown_menu li").eq($(this).index()).find("a").attr("href").split('/')[3];
+        var postpath = window.localStorage.getItem("path");
+        postpath = path;
+        window.localStorage.setItem("path", postpath);
+        tabbed();
+    })
 
     $(document).on("click", ".orders li", function () {
         orderStatusId = $(this).find("a").attr("href").split('/')[2];
@@ -289,7 +317,6 @@ $(document).ready(function () {
             }
         })
     }
-
 
 
     var CountryId;

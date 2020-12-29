@@ -274,6 +274,7 @@ namespace Starex.Migrations
                     ProductWeight = table.Column<decimal>(nullable: false),
                     WarehouseId = table.Column<int>(nullable: false),
                     DeclarationDate = table.Column<DateTime>(nullable: false),
+                    PayedOrNot = table.Column<bool>(nullable: false),
                     StatusId = table.Column<int>(nullable: false),
                     UserId = table.Column<string>(nullable: false)
                 },

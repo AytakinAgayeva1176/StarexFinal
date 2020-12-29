@@ -14,7 +14,7 @@
                 <th>Rəng</th>
                 <th>Ölçü</th>
                 <th>Qiymət</th>
-                <th> Türkiyədaxili kargo</th>
+                <th> Daxili kargo</th>
                 <th>Cəmi qiymət </th>
                 <th> Ödəmə</th>
                 <th> Sil</th>
@@ -43,7 +43,9 @@
                         </div>
 
                     </td>
-                    <td class="url" style="table-layout: fixed;">@Html.DisplayFor(modelItem => item.Url)</td>
+                    <td class="url" style="table-layout: fixed;">
+                        <a href=@Html.DisplayFor(modelItem => item.Url)> @Html.DisplayFor(modelItem => item.Url)</a>
+                   </td>
                     <td> @Html.DisplayFor(modelItem => item.Comment)</td>
                     <td> @Html.DisplayFor(modelItem => item.CreationDate)</td>
                     <td> @Html.DisplayFor(modelItem => item.Quantity)</td>

@@ -59,7 +59,8 @@ namespace Starex.Models
 		[Required]
 		public DateTime DeclarationDate { get; set; }
 
-        public int StatusId { get; set; }
+		public bool PayedOrNot { get; set; }
+		public int StatusId { get; set; }
 		[Required]
 		public string UserId { get; set; }
 

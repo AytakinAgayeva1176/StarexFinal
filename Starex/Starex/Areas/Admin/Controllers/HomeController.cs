@@ -95,8 +95,15 @@ namespace Starex.Areas.Admin.Controllers
             var order = context.Orders.FirstOrDefault(x => x.Id == id);
             order.StatusId = 3;
             context.Orders.Update(order);
-            context.SaveChanges();
+            Notification notification = new Notification()
+            {
+                Date=DateTime.Now,
+                Message=order.TrackingCode+"Məhsul sifariş verildi",
+                UserId=order.UserId
+            };
 
+            context.Notifications.Add(notification);
+            context.SaveChanges();
             return RedirectToAction("Orders"); 
         }
 
@@ -231,9 +238,30 @@ namespace Starex.Areas.Admin.Controllers
                }).ToList();
 
                 context.Declarations.Update(declaration);
-                context.SaveChanges();
+            var status = "null";
+            if (declaration.StatusId==2)
+            {
+                status="Məhsulunuz xarici anbardadır";
+            }
+            if (declaration.StatusId == 3)
+            {
+                status = "Məhsulunuz artıq yoldadır";
+            }
+            if (declaration.StatusId == 4)
+            {
+                status = "Məhsulunuz yerli anbardadır,yaxınlaşıb təhvil ala bilərsiniz";
+            }
+            Notification notification = new Notification()
+            {
+                Date = DateTime.Now,
+                Message = declaration.TrackingCode +" "+ status,
+                UserId = declaration.UserId
+            };
+
+            context.Notifications.Add(notification);
+            context.SaveChanges();
                 return RedirectToAction("Declarations");
-             //declaration.StatusId = id;
+
 
         }
 

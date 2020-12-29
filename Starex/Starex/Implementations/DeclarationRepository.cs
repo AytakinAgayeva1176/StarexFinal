@@ -23,6 +23,7 @@ namespace Starex.Implementations
         public async Task<bool> Create(DeclarationViewModel declarationViewModel)
         {
             var declaration = _mapper.Map<Declaration>(declarationViewModel);
+            declaration.PayedOrNot = false;
             await _context.Declarations.AddAsync(declaration);
             var result = await _context.SaveChangesAsync() > 0;
             return result;
@@ -55,14 +56,14 @@ namespace Starex.Implementations
             var result = false;
             var userbalance = _context.UserBalances.FirstOrDefault(x => x.UserId == userId && x.CurrencyId == currencyId);
             var balance = userbalance.Balance;
-            var amount = declaration.ShippingPrice;
-            if (declaration.StatusId == 1)
+            var shippingPrice = declaration.ShippingPrice;
+            if (declaration.StatusId == 4)
             {
-                if (amount <= balance)
+                if (shippingPrice <= balance)
                 {
-                    
+                    declaration.PayedOrNot = true;
                     _context.Declarations.Update(declaration);
-                    userbalance.Balance = balance - amount;
+                    userbalance.Balance = balance - shippingPrice;
                     _context.UserBalances.Update(userbalance);
                     _context.SaveChanges();
 
