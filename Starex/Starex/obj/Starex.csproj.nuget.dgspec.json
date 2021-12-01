@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Code\\source\\repos\\StarexFinalProject\\Starex\\Starex\\Starex.csproj": {}
+    "C:\\Users\\aytakin.agayeva\\source\\repos\\StarexFinal\\Starex\\Starex\\Starex.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Code\\source\\repos\\StarexFinalProject\\Starex\\Starex\\Starex.csproj": {
+    "C:\\Users\\aytakin.agayeva\\source\\repos\\StarexFinal\\Starex\\Starex\\Starex.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Code\\source\\repos\\StarexFinalProject\\Starex\\Starex\\Starex.csproj",
+        "projectUniqueName": "C:\\Users\\aytakin.agayeva\\source\\repos\\StarexFinal\\Starex\\Starex\\Starex.csproj",
         "projectName": "Starex",
-        "projectPath": "C:\\Users\\Code\\source\\repos\\StarexFinalProject\\Starex\\Starex\\Starex.csproj",
-        "packagesPath": "C:\\Users\\Code\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Code\\source\\repos\\StarexFinalProject\\Starex\\Starex\\obj\\",
+        "projectPath": "C:\\Users\\aytakin.agayeva\\source\\repos\\StarexFinal\\Starex\\Starex\\Starex.csproj",
+        "packagesPath": "C:\\Users\\aytakin.agayeva\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aytakin.agayeva\\source\\repos\\StarexFinal\\Starex\\Starex\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Code\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aytakin.agayeva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,6 +30,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -40,6 +42,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
@@ -86,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

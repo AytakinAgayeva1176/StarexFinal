@@ -52,7 +52,7 @@ namespace Starex
             //services.AddMvc(option => option.EnableEndpointRouting = false);
 
             services.AddDbContext<StarexDbContext>(
-                x => x.UseSqlServer(@"Server=DESKTOP-5P45H04\SQLEXPRESS;Database=StarexDb;Trusted_Connection=True;"));
+                x => x.UseSqlServer(@"Server=FNCT-178;Database=StarexDb;Trusted_Connection=True;"));
 
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IEmailService, EmailService>();

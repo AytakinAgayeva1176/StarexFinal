@@ -9,5 +9,6 @@ namespace Starex.Models.Email
     public interface IEmailService
     {
         Task SendEmailAsync(MailRequest mailRequest);
+       
     }
 }
